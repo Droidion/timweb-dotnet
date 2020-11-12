@@ -1,6 +1,6 @@
 using System;
 
-namespace Api
+namespace Timweb.Api
 {
     public class WeatherForecast
     {

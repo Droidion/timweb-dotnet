@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace Website.Tests
+namespace Timweb.Website.Tests
 {
     public class UnitTest1
     {
