@@ -8,12 +8,12 @@ using Npgsql;
 namespace Timweb.Api.Services
 {
     /// <summary>
-    /// Operations on Postgres database
+    ///     Operations on Postgres database
     /// </summary>
     public interface IDatabase
     {
         /// <summary>
-        /// Retrieves data from the database
+        ///     Retrieves data from the database
         /// </summary>
         /// <param name="query">SQL query</param>
         /// <typeparam name="T">Data structure to map the query result to</typeparam>
@@ -21,20 +21,20 @@ namespace Timweb.Api.Services
         Task<List<T>> QueryDb<T>(string query);
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public class Database : IDatabase
     {
         /// <summary>
-        /// Postgres database connection string
+        ///     Postgres database connection string
         /// </summary>
         private readonly string _connectionString;
-        
+
         public Database(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("Postgres");
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public async Task<List<T>> QueryDb<T>(string query)
         {
             await using var db = CreateConnection();
@@ -42,12 +42,12 @@ namespace Timweb.Api.Services
         }
 
         /// <summary>
-        /// Creates new Postgres database connection
+        ///     Creates new Postgres database connection
         /// </summary>
         /// <returns>Postgres database connection</returns>
         private NpgsqlConnection CreateConnection()
         {
             return new NpgsqlConnection(_connectionString);
-        } 
+        }
     }
 }
