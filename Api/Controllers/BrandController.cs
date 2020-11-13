@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Npgsql;
+using Timweb.Api.Services;
 using Timweb.Models;
 
 namespace Timweb.Api.Controllers
@@ -16,22 +12,18 @@ namespace Timweb.Api.Controllers
     public class BrandController : ControllerBase
     {
         private readonly ILogger<BrandController> _logger;
-        private readonly IConfiguration _configuration;
+        private readonly IDatabase _db;
         
-        public BrandController(ILogger<BrandController> logger, IConfiguration configuration)
+        public BrandController(ILogger<BrandController> logger, IDatabase db)
         {
             _logger = logger;
-            _configuration = configuration;
+            _db = db;
         }
 
         [HttpGet]
         public async Task<IEnumerable<Brand>> Get()
         {
-            await using (var conn = new NpgsqlConnection(_configuration.GetConnectionString("Postgres"))) 
-            {
-                await conn.OpenAsync();
-                return conn.Query<Brand>("select * from brands;");
-            }
+            return await _db.QueryDb<Brand>(Sql.SelectBrands);
         }
     }
 }
