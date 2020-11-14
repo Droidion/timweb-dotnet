@@ -12,6 +12,14 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
     </ItemGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DocumentationFile>bin\Debug\Api.xml</DocumentationFile>
+    </PropertyGroup>
+    
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\Api.xml</DocumentationFile>
+    </PropertyGroup>
+
     <ItemGroup>
       <ProjectReference Include="..\Models\Models.csproj" />
     </ItemGroup>
