@@ -33,19 +33,21 @@ namespace Timweb.Api.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<IEnumerable<Brand>>> Get([FromServices] IHub sentry)
+        public async Task<ActionResult<IEnumerable<Brand>>> Get(
+            [FromServices] IHub sentry,
+            [FromQuery(Name = "limit")] string? limit,
+            [FromQuery(Name = "skip")] string? skip)
         {
             _logger.LogInformation("GET Brand");
             try
             {
-                return await _db.QueryDb<Brand>(Sql.SelectBrands);
+                return await _db.QueryDb<Brand>(Sql.SelectBrands(limit, skip));
             }
             catch (Exception e)
             {
                 sentry.CaptureException(e);
                 return BadRequest(e.Message);
             }
-            
         }
     }
 }
