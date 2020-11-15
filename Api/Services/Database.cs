@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace Timweb.Api.Services
         /// </summary>
         /// <param name="query">SQL query</param>
         /// <typeparam name="T">Data structure to map the query result to</typeparam>
+        /// <exception cref="InvalidOperationException">Could not make a DB query</exception>
         /// <returns>Result of the request mapped to a C# class</returns>
         Task<List<T>> QueryDb<T>(string query);
     }
@@ -37,8 +39,15 @@ namespace Timweb.Api.Services
         /// <inheritdoc />
         public async Task<List<T>> QueryDb<T>(string query)
         {
-            await using var db = CreateConnection();
-            return db.Query<T>(query).ToList();
+            try
+            {
+                await using var db = CreateConnection();
+                return db.Query<T>(query).ToList();
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Could not make a DB query", e);
+            }
         }
 
         /// <summary>
@@ -47,7 +56,7 @@ namespace Timweb.Api.Services
         /// <returns>Postgres database connection</returns>
         private NpgsqlConnection CreateConnection()
         {
-            return new NpgsqlConnection(_connectionString);
+            return new(_connectionString);
         }
     }
 }

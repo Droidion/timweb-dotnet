@@ -29,7 +29,10 @@ namespace Timweb.Api.Controllers
         /// <summary>
         /// Retrieves company brands from the database
         /// </summary>
-        /// <returns>Brands</returns>
+        /// <param name="sentry">Dependency injected Sentry client</param>
+        /// <param name="limit">How many results to show</param>
+        /// <param name="skip">How many results to skip</param>
+        /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
