@@ -6,7 +6,7 @@ namespace Timweb.Api.Services
     public static class Sql
     {
         /// <summary>
-        /// SQL Query for retrieving brands
+        ///     SQL Query for retrieving brands
         /// </summary>
         /// <param name="limit">How many results to return</param>
         /// <param name="skip">How many results to skip</param>
@@ -17,7 +17,7 @@ namespace Timweb.Api.Services
         }
 
         /// <summary>
-        /// Adds LIMIT and OFFSET clauses to the SQL query
+        ///     Adds LIMIT and OFFSET clauses to the SQL query
         /// </summary>
         /// <param name="query">SQL query to add clauses to</param>
         /// <param name="limit">How many results to return</param>
@@ -29,6 +29,5 @@ namespace Timweb.Api.Services
             if (int.TryParse(skip, out var sk)) query += $" OFFSET {sk}";
             return query;
         }
-        
     }
 }

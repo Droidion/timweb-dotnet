@@ -11,7 +11,7 @@ namespace Timweb.ApiTests
     {
         public int Res;
     }
-    
+
     public class DatabaseTests
     {
         [Fact]
@@ -24,7 +24,7 @@ namespace Timweb.ApiTests
             var result = await db.QueryDb<Result>("SELECT 1 AS res");
             result.ShouldNotBeNull();
             result.Count.ShouldBe(1);
-            result[0].ShouldBe(new Result { Res = 1});
+            result[0].ShouldBe(new Result {Res = 1});
         }
     }
 }

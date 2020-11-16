@@ -13,21 +13,21 @@ namespace Timweb.ApiTests
             Sql.AddLimitSkip("SELECT 1", null, null).ShouldBe("SELECT 1");
             Sql.AddLimitSkip("SELECT 1", "", "").ShouldBe("SELECT 1");
         }
-        
+
         [Fact]
         public void AddLimitSkipBuildsSqlWithLimit()
         {
             var result = Sql.AddLimitSkip("SELECT 1", "10", "");
             result.ShouldBe("SELECT 1 LIMIT 10");
         }
-        
+
         [Fact]
         public void AddLimitSkipBuildsSqlWithSkip()
         {
             var result = Sql.AddLimitSkip("SELECT 1", "", "20");
             result.ShouldBe("SELECT 1 OFFSET 20");
         }
-        
+
         [Fact]
         public void AddLimitSkipBuildsSqlWithLimitAndSkip()
         {

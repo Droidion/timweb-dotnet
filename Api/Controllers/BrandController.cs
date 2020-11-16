@@ -11,7 +11,7 @@ using Timweb.Models;
 namespace Timweb.Api.Controllers
 {
     /// <summary>
-    /// Company brand controller
+    ///     Company brand controller
     /// </summary>
     [ApiController]
     [Route("[controller]")]
@@ -21,7 +21,7 @@ namespace Timweb.Api.Controllers
         private readonly ILogger<BrandController> _logger;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="BrandController"/> class.
+        ///     Initializes a new instance of the <see cref="BrandController" /> class.
         /// </summary>
         /// <param name="logger">Dependency injected logger</param>
         /// <param name="db">Dependency injected interface for making DB queries</param>
