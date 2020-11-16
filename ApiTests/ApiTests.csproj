@@ -7,7 +7,7 @@
 
         <Nullable>enable</Nullable>
 
-        <RootNamespace>Timweb.Api.Tests</RootNamespace>
+        <RootNamespace>Timweb.ApiTests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
