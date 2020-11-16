@@ -20,6 +20,11 @@ namespace Timweb.Api.Controllers
         private readonly IDatabase _db;
         private readonly ILogger<BrandController> _logger;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="BrandController"/> class.
+        /// </summary>
+        /// <param name="logger">Dependency injected logger</param>
+        /// <param name="db">Dependency injected interface for making DB queries</param>
         public BrandController(ILogger<BrandController> logger, IDatabase db)
         {
             _logger = logger;
@@ -27,12 +32,12 @@ namespace Timweb.Api.Controllers
         }
 
         /// <summary>
-        /// Retrieves company brands from the database
+        ///     Retrieves company brands from the database
         /// </summary>
         /// <param name="sentry">Dependency injected Sentry client</param>
         /// <param name="limit">How many results to show</param>
         /// <param name="skip">How many results to skip</param>
-        /// <returns></returns>
+        /// <returns>Company brands</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
