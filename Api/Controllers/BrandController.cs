@@ -54,26 +54,34 @@ namespace Timweb.Api.Controllers
             catch (Exception e)
             {
                 sentry.CaptureException(e);
-                return BadRequest(e.Message);
+                return StatusCode(500, e.Message);
             }
         }
         
+        /// <summary>
+        ///     Inserts new brand
+        /// </summary>
+        /// <param name="sentry">Dependency injected Sentry client</param>
+        /// <param name="brand">Brand DTO</param>
+        /// <returns>Id of the created brand</returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<IdContainer>> Post(
+        public async Task<ActionResult<int>> Post(
             [FromServices] IHub sentry,
             [FromBody] Brand brand)
         {
-            _logger.LogInformation("GET Brand");
+            _logger.LogInformation("POST Brand");
             try
             {
-                return await _db.InsertDb(brand, Sql.InsertBrand());
+                var id = await _db.InsertDb(Sql.InsertBrand(), brand);
+                return StatusCode(201, id);
             }
             catch (Exception e)
             {
                 sentry.CaptureException(e);
-                return BadRequest(e.Message);
+                return StatusCode(500, e.Message);
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
+using Timweb.Models;
 
 namespace Timweb.Api.Services
 {
@@ -22,7 +23,15 @@ namespace Timweb.Api.Services
         /// <returns>Result of the request mapped to a C# class</returns>
         Task<List<T>> QueryDb<T>(string query);
 
-        Task<IdContainer> InsertDb<T>(T item, string query);
+        /// <summary>
+        ///     Inserts DTO to a Postgres database
+        /// </summary>
+        /// <param name="query">SQL query</param>
+        /// <param name="dto">DTO to insert</param>
+        /// <typeparam name="T">DTO type</typeparam>
+        /// <returns>Id of the inserted object wrapped into a type</returns>
+        /// <exception cref="InvalidOperationException">Could not make a DB insert</exception>
+        Task<int> InsertDb<T>(string query, T dto);
     }
 
     /// <inheritdoc />
@@ -33,6 +42,10 @@ namespace Timweb.Api.Services
         /// </summary>
         private readonly string _connectionString;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Database" /> class.
+        /// </summary>
+        /// <param name="configuration">Dependency injected app configuration</param>
         public Database(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("Postgres");
@@ -52,12 +65,13 @@ namespace Timweb.Api.Services
             }
         }
 
-        public async Task<IdContainer> InsertDb<T>(T item, string query)
+        /// <inheritdoc />
+        public async Task<int> InsertDb<T>(string query, T dto)
         {
             try
             {
                 await using var db = CreateConnection();
-                return db.QuerySingle<IdContainer>(query, item);
+                return db.QuerySingle(query, dto).Id;
             }
             catch (Exception e)
             {
@@ -74,10 +88,5 @@ namespace Timweb.Api.Services
             return new(_connectionString);
         }
         
-    }
-
-    public class IdContainer
-    {
-        public int Id { get; set; }
     }
 }
