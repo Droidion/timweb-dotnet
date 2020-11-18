@@ -9,7 +9,7 @@ namespace Timweb.ApiTests
     [UsedImplicitly]
     public record Result
     {
-        public int Res;
+        public int Res { get; init; }
     }
 
     public class DatabaseTests
