@@ -57,5 +57,24 @@ namespace Timweb.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
+        
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<IdContainer>> Post(
+            [FromServices] IHub sentry,
+            [FromBody] Brand brand)
+        {
+            _logger.LogInformation("GET Brand");
+            try
+            {
+                return await _db.InsertDb(brand, Sql.InsertBrand());
+            }
+            catch (Exception e)
+            {
+                sentry.CaptureException(e);
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

@@ -16,6 +16,11 @@ namespace Timweb.Api.Services
             return AddLimitSkip("SELECT id, logo, name_en AS NameEn, name_ru AS NameRu FROM brands", limit, skip);
         }
 
+        public static string InsertBrand()
+        {
+            return @"INSERT INTO brands (logo, name_en, name_ru) VALUES (@Logo, @NameEn, @NameRu) RETURNING id";
+        }
+
         /// <summary>
         ///     Adds LIMIT and OFFSET clauses to the SQL query
         /// </summary>

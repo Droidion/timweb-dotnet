@@ -21,6 +21,8 @@ namespace Timweb.Api.Services
         /// <exception cref="InvalidOperationException">Could not make a DB query</exception>
         /// <returns>Result of the request mapped to a C# class</returns>
         Task<List<T>> QueryDb<T>(string query);
+
+        Task<IdContainer> InsertDb<T>(T item, string query);
     }
 
     /// <inheritdoc />
@@ -50,6 +52,19 @@ namespace Timweb.Api.Services
             }
         }
 
+        public async Task<IdContainer> InsertDb<T>(T item, string query)
+        {
+            try
+            {
+                await using var db = CreateConnection();
+                return db.QuerySingle<IdContainer>(query, item);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Could not make a DB insert", e);
+            }
+        }
+
         /// <summary>
         ///     Creates new Postgres database connection
         /// </summary>
@@ -58,5 +73,11 @@ namespace Timweb.Api.Services
         {
             return new(_connectionString);
         }
+        
+    }
+
+    public class IdContainer
+    {
+        public int Id { get; set; }
     }
 }

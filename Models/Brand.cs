@@ -12,7 +12,7 @@ namespace Timweb.Models
         /// Id in the database
         /// </summary>
         /// <example>100</example>
-        public int Id { get; }
+        public int? Id { get; }
         
         /// <summary>
         /// Path to logo image
