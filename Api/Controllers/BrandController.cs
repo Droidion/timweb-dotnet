@@ -84,5 +84,33 @@ namespace Timweb.Api.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+        
+        /// <summary>
+        ///     Updates existing brand
+        /// </summary>
+        /// <param name="sentry">Dependency injected Sentry client</param>
+        /// <param name="brand">Brand DTO</param>
+        /// <returns>Id of the created brand</returns>
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> Put(
+            [FromServices] IHub sentry,
+            [FromBody] Brand brand)
+        {
+            _logger.LogInformation("POST Brand");
+            try
+            {
+                var rowsAffected = await _db.UpdateDb(Sql.UpdateBrand, brand);
+                if (rowsAffected == 1) return StatusCode(204);
+                return StatusCode(400, "No update happened. Brand probably does not exist.");
+            }
+            catch (Exception e)
+            {
+                sentry.CaptureException(e);
+                return StatusCode(500, e.Message);
+            }
+        }
     }
 }

@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
-using Timweb.Models;
 
 namespace Timweb.Api.Services
 {
@@ -32,6 +31,16 @@ namespace Timweb.Api.Services
         /// <returns>Id of the inserted object wrapped into a type</returns>
         /// <exception cref="InvalidOperationException">Could not make a DB insert</exception>
         Task<int> InsertDb<T>(string query, T dto);
+
+        /// <summary>
+        ///     Update DTO in a Postgres database
+        /// </summary>
+        /// <param name="query">SQL query</param>
+        /// <param name="dto">DTO to update</param>
+        /// <typeparam name="T">DTO type</typeparam>
+        /// <returns>Number of rows affected</returns>
+        /// <exception cref="InvalidOperationException">Could not make a DB update</exception>
+        Task<int> UpdateDb<T>(string query, T dto);
     }
 
     /// <inheritdoc />
@@ -76,6 +85,20 @@ namespace Timweb.Api.Services
             catch (Exception e)
             {
                 throw new InvalidOperationException("Could not make a DB insert", e);
+            }
+        }
+        
+        /// <inheritdoc />
+        public async Task<int> UpdateDb<T>(string query, T dto)
+        {
+            try
+            {
+                await using var db = CreateConnection();
+                return await db.ExecuteAsync(query, dto);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Could not make a DB update", e);
             }
         }
 
