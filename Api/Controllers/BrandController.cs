@@ -75,7 +75,7 @@ namespace Timweb.Api.Controllers
             _logger.LogInformation("POST Brand");
             try
             {
-                var id = await _db.InsertDb(Sql.InsertBrand(), brand);
+                var id = await _db.InsertDb(Sql.InsertBrand, brand);
                 return StatusCode(201, id);
             }
             catch (Exception e)
