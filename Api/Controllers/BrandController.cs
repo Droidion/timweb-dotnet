@@ -37,7 +37,7 @@ namespace Timweb.Api.Controllers
         /// <param name="sentry">Dependency injected Sentry client</param>
         /// <param name="limit">How many results to show</param>
         /// <param name="skip">How many results to skip</param>
-        /// <returns>Company brands</returns>
+        /// <returns>HTTP response</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -90,7 +90,7 @@ namespace Timweb.Api.Controllers
         /// </summary>
         /// <param name="sentry">Dependency injected Sentry client</param>
         /// <param name="brand">Brand DTO</param>
-        /// <returns>Id of the created brand</returns>
+        /// <returns>HTTP response</returns>
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -99,12 +99,40 @@ namespace Timweb.Api.Controllers
             [FromServices] IHub sentry,
             [FromBody] Brand brand)
         {
-            _logger.LogInformation("POST Brand");
+            _logger.LogInformation("PUT Brand");
             try
             {
-                var rowsAffected = await _db.UpdateDb(Sql.UpdateBrand, brand);
+                var rowsAffected = await _db.ExecuteDb(Sql.UpdateBrand, brand);
                 if (rowsAffected == 1) return StatusCode(204);
                 return StatusCode(400, "No update happened. Brand probably does not exist.");
+            }
+            catch (Exception e)
+            {
+                sentry.CaptureException(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+        
+        /// <summary>
+        ///     Deletes existing brand
+        /// </summary>
+        /// <param name="sentry">Dependency injected Sentry client</param>
+        /// <param name="id">Id of the brand to delete</param>
+        /// <returns>HTTP response</returns>
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> Delete(
+            [FromServices] IHub sentry,
+            int id)
+        {
+            _logger.LogInformation("DELETE Brand");
+            try
+            {
+                var rowsAffected = await _db.ExecuteDb(Sql.DeleteBrand, new {Id = id});
+                if (rowsAffected == 1) return StatusCode(204);
+                return StatusCode(400, "No deletion happened. Brand probably does not exist.");
             }
             catch (Exception e)
             {

@@ -39,8 +39,8 @@ namespace Timweb.Api.Services
         /// <param name="dto">DTO to update</param>
         /// <typeparam name="T">DTO type</typeparam>
         /// <returns>Number of rows affected</returns>
-        /// <exception cref="InvalidOperationException">Could not make a DB update</exception>
-        Task<int> UpdateDb<T>(string query, T dto);
+        /// <exception cref="InvalidOperationException">Could not execute a DB operation</exception>
+        Task<int> ExecuteDb<T>(string query, T dto);
     }
 
     /// <inheritdoc />
@@ -89,7 +89,7 @@ namespace Timweb.Api.Services
         }
         
         /// <inheritdoc />
-        public async Task<int> UpdateDb<T>(string query, T dto)
+        public async Task<int> ExecuteDb<T>(string query, T dto)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace Timweb.Api.Services
             }
             catch (Exception e)
             {
-                throw new InvalidOperationException("Could not make a DB update", e);
+                throw new InvalidOperationException("Could not execute a DB operation", e);
             }
         }
 
