@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -39,7 +40,9 @@ namespace Timweb.Api.Controllers
         /// <param name="skip">How many results to skip</param>
         /// <returns>HTTP response</returns>
         [HttpGet]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<Brand>>> Get(
             [FromServices] IHub sentry,
@@ -65,8 +68,10 @@ namespace Timweb.Api.Controllers
         /// <param name="brand">Brand DTO</param>
         /// <returns>Id of the created brand</returns>
         [HttpPost]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<int>> Post(
             [FromServices] IHub sentry,
@@ -92,8 +97,10 @@ namespace Timweb.Api.Controllers
         /// <param name="brand">Brand DTO</param>
         /// <returns>HTTP response</returns>
         [HttpPut]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Put(
             [FromServices] IHub sentry,
@@ -120,8 +127,10 @@ namespace Timweb.Api.Controllers
         /// <param name="id">Id of the brand to delete</param>
         /// <returns>HTTP response</returns>
         [HttpDelete("{id}")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Delete(
             [FromServices] IHub sentry,
