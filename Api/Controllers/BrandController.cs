@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Sentry;
 using Timweb.Api.Services;
 using Timweb.Models;
+using Timweb.Api.Services.Sql;
 
 namespace Timweb.Api.Controllers
 {
@@ -52,7 +53,7 @@ namespace Timweb.Api.Controllers
             _logger.LogInformation("GET Brand");
             try
             {
-                return await _db.QueryDb<Brand>(Sql.SelectBrands(limit, skip));
+                return await _db.QueryDb<Brand>(BrandSql.Select(limit, skip));
             }
             catch (Exception e)
             {
@@ -60,7 +61,7 @@ namespace Timweb.Api.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-        
+
         /// <summary>
         ///     Inserts new brand
         /// </summary>
@@ -80,7 +81,7 @@ namespace Timweb.Api.Controllers
             _logger.LogInformation("POST Brand");
             try
             {
-                var id = await _db.InsertDb(Sql.InsertBrand, brand);
+                var id = await _db.InsertDb(BrandSql.Insert, brand);
                 return StatusCode(201, id);
             }
             catch (Exception e)
@@ -89,7 +90,7 @@ namespace Timweb.Api.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-        
+
         /// <summary>
         ///     Updates existing brand
         /// </summary>
@@ -109,7 +110,7 @@ namespace Timweb.Api.Controllers
             _logger.LogInformation("PUT Brand");
             try
             {
-                var rowsAffected = await _db.ExecuteDb(Sql.UpdateBrand, brand);
+                var rowsAffected = await _db.ExecuteDb(BrandSql.Update, brand);
                 if (rowsAffected == 1) return StatusCode(204);
                 return StatusCode(400, "No update happened. Brand probably does not exist.");
             }
@@ -119,7 +120,7 @@ namespace Timweb.Api.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-        
+
         /// <summary>
         ///     Deletes existing brand
         /// </summary>
@@ -139,7 +140,7 @@ namespace Timweb.Api.Controllers
             _logger.LogInformation("DELETE Brand");
             try
             {
-                var rowsAffected = await _db.ExecuteDb(Sql.DeleteBrand, new {Id = id});
+                var rowsAffected = await _db.ExecuteDb(BrandSql.Delete, new {Id = id});
                 if (rowsAffected == 1) return StatusCode(204);
                 return StatusCode(400, "No deletion happened. Brand probably does not exist.");
             }
