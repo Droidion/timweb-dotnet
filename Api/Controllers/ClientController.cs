@@ -32,7 +32,7 @@ namespace Timweb.Api.Controllers
             _logger = logger;
             _db = db;
         }
-        
+
         /// <summary>
         ///     Retrieves clients from the database
         /// </summary>
@@ -54,11 +54,11 @@ namespace Timweb.Api.Controllers
             try
             {
                 return await _db.QueryDb<Client, Brand, Client>(ClientSql.Select(limit, skip), (client, brand) =>
-                {
-                    client.Brand = brand;
-                    return client;
-                },
-                "logo");
+                    {
+                        client.Brand = brand;
+                        return client;
+                    },
+                    "logo");
             }
             catch (Exception e)
             {

@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sentry;
 using Timweb.Api.Services;
-using Timweb.Models;
 using Timweb.Api.Services.Sql;
+using Timweb.Models;
 
 namespace Timweb.Api.Controllers
 {

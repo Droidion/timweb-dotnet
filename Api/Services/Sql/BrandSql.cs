@@ -14,12 +14,12 @@ namespace Timweb.Api.Services.Sql
         ///     SQL query for updating a brand
         /// </summary>
         public const string Update = @"UPDATE brands SET logo = @Logo, name_en = @NameEn, name_ru = @NameRu WHERE id = @Id";
-        
+
         /// <summary>
         ///     SQL query for deleting a brand
         /// </summary>
         public const string Delete = @"DELETE FROM brands WHERE id = @Id";
-        
+
         /// <summary>
         ///     SQL Query for retrieving brands
         /// </summary>

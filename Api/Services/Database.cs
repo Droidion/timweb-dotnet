@@ -21,7 +21,7 @@ namespace Timweb.Api.Services
         /// <exception cref="InvalidOperationException">Could not make a DB query</exception>
         /// <returns>Result of the request mapped to a C# type</returns>
         Task<List<T>> QueryDb<T>(string query);
-        
+
         /// <summary>
         ///     Retrieves data from the database with a single table relation
         /// </summary>
@@ -85,7 +85,7 @@ namespace Timweb.Api.Services
                 throw new InvalidOperationException("Could not make a DB query", e);
             }
         }
-        
+
         /// <inheritdoc />
         public async Task<List<TReturn>> QueryDb<TFirst, TSecond, TReturn>(string query, Func<TFirst, TSecond, TReturn> connector, string splitOn)
         {
@@ -113,7 +113,7 @@ namespace Timweb.Api.Services
                 throw new InvalidOperationException("Could not make a DB insert", e);
             }
         }
-        
+
         /// <inheritdoc />
         public async Task<int> ExecuteDb<T>(string query, T dto)
         {
@@ -136,6 +136,5 @@ namespace Timweb.Api.Services
         {
             return new(_connectionString);
         }
-        
     }
 }
