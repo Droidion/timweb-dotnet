@@ -14,13 +14,25 @@ namespace Timweb.Api.Services
     public interface IDatabase
     {
         /// <summary>
-        ///     Retrieves data from the database
+        ///     Retrieves data from the database without table relations
         /// </summary>
         /// <param name="query">SQL query</param>
         /// <typeparam name="T">Data structure to map the query result to</typeparam>
         /// <exception cref="InvalidOperationException">Could not make a DB query</exception>
-        /// <returns>Result of the request mapped to a C# class</returns>
+        /// <returns>Result of the request mapped to a C# type</returns>
         Task<List<T>> QueryDb<T>(string query);
+        
+        /// <summary>
+        ///     Retrieves data from the database with a single table relation
+        /// </summary>
+        /// <param name="query">SQL query</param>
+        /// <param name="connector">Function for making a relation between tables</param>
+        /// <param name="splitOn">Column name for splitting types</param>
+        /// <typeparam name="TFirst">First input type</typeparam>
+        /// <typeparam name="TSecond">Second input type</typeparam>
+        /// <typeparam name="TReturn">Returned type</typeparam>
+        /// <returns>Result of the request mapped to a C# types</returns>
+        Task<List<TReturn>> QueryDb<TFirst, TSecond, TReturn>(string query, Func<TFirst, TSecond, TReturn> connector, string splitOn);
 
         /// <summary>
         ///     Inserts DTO to a Postgres database
@@ -66,7 +78,21 @@ namespace Timweb.Api.Services
             try
             {
                 await using var db = CreateConnection();
-                return db.Query<T>(query).ToList();
+                return (await db.QueryAsync<T>(query)).ToList();
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Could not make a DB query", e);
+            }
+        }
+        
+        /// <inheritdoc />
+        public async Task<List<TReturn>> QueryDb<TFirst, TSecond, TReturn>(string query, Func<TFirst, TSecond, TReturn> connector, string splitOn)
+        {
+            try
+            {
+                await using var db = CreateConnection();
+                return (await db.QueryAsync(query, connector, splitOn: splitOn)).ToList();
             }
             catch (Exception e)
             {
@@ -80,7 +106,7 @@ namespace Timweb.Api.Services
             try
             {
                 await using var db = CreateConnection();
-                return db.QuerySingle(query, dto).Id;
+                return db.QuerySingleAsync(query, dto).Id;
             }
             catch (Exception e)
             {

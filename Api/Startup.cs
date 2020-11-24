@@ -41,7 +41,10 @@ namespace Timweb.Api
                         ClockSkew = TimeSpan.Zero
                     };
                 });
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
             services.AddSingleton<IDatabase, Database>();
             services.AddSwaggerGen(c =>
             {

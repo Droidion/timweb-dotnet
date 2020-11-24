@@ -1,8 +1,10 @@
 namespace Timweb.Models
 {
-    public class Client
+    public record Client
     {
+        public int? Id { get; init; }
+        public string NameRu { get; init; }
+        public string NameEn { get; init; }
         public Brand Brand { get; set; }
-        public Name Name { get; set; }
     }
 }
