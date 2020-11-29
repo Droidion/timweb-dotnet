@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Timweb.Website.Services;
 
 namespace Timweb.Website
 {
@@ -20,6 +21,7 @@ namespace Timweb.Website
         {
             services.AddHttpClient();
             services.AddRazorPages();
+            services.AddSingleton<IRequestMaker, RequestMaker>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
