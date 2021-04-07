@@ -1,3 +1,6 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -8,9 +11,35 @@ namespace Timweb.Api
     [UsedImplicitly]
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            //CreateHostBuilder(args).Build().Run();
+            Console.WriteLine("Start");
+            CallTimer();
+            Console.WriteLine("Finish");
+        }
+
+        private int Foo(int foo)
+        {
+            return foo * 2;
+        }
+        
+        private int Bar(Func<int, int> multiplier, int val) => multiplier(val);
+
+        public int Zoo()
+        {
+            return Bar(Foo, 20); 
+        }   
+
+        
+        private static async Task CallTimer()
+        {
+            await Task.Run(() =>
+            {
+                Console.WriteLine("BeforeSleep");
+                Thread.Sleep(3000);
+                Console.WriteLine("AfterSleep");
+            });
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)

@@ -1,13 +1,20 @@
-# Timgroup web infrastructe
+# TIM Group Web
 
-There is a site https://timseminar.ru. It'w ancient, written in PHP, uses MySQL, has no admin interface.
+TIM Group is a friendly business led by Igor Smirnov who offers financial trainings for oil and gas companies in Russia. Seminars also uses gamification in the form of computer simulations. I spent some years of my life working on them. 
 
-This project tries to bring it to the modern era using .NET 5.0 and PostgreSQL.
+Here is the rewrite friendly site [timseminar.ru](https://timseminar.ru) from ancient PHP to .NET 5.
 
-It also tries to split the existing monolith into several dockerized parts:
+Stack:
 
+- C# 9.
+- .NET 5 
+- Razor Pages, Blazor.
+- Postgres 13
+- Docker
+
+Functionality:
+
+- Main site, server-side rendering with Razor Pages.
 - API
-- Server-rendered main site.
-- Server-rendered admin panel.
-- Switch `Google Analytics` to self hosted `umami`.
-- Leave the same design, but modernize it.
+- Admin panel with server-rendered Blazor.
+- Same design, refactored styles.

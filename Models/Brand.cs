@@ -26,12 +26,12 @@ namespace Timweb.Models
         ///     Brand name in Russian
         /// </summary>
         /// <example>Газпром</example>
-        public string NameRu { get; init; }
+        public string NameRu { get; init; } = "";
 
         /// <summary>
         ///     Brand name in English
         /// </summary>
         /// <example>Gasprom</example>
-        public string NameEn { get; init; }
+        public string NameEn { get; init; } = "";
     }
 }

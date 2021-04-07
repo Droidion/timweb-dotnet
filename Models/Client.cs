@@ -20,13 +20,13 @@ namespace Timweb.Models
         ///     Client name in Russian
         /// </summary>
         /// <example>ООО Газпром</example>
-        public string NameRu { get; init; }
+        public string NameRu { get; init; } = "";
 
         /// <summary>
         ///     Client name in English
         /// </summary>
         /// <example>OOO Gasprom</example>
-        public string NameEn { get; init; }
+        public string NameEn { get; init; } = "";
 
         /// <summary>
         ///     Brand of the client
