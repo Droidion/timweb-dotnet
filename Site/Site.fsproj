@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="Config.yaml" />
+        <Compile Include="Database\SqlRequests.fs" />
+        <Compile Include="Database\Helpers.fs" />
+        <Compile Include="Database\YearsProvider.fs" />
+        <Compile Include="Database\TimetableProvider.fs" />
+        <Compile Include="Templates\Svg.fs" />
+        <Compile Include="Templates\Partials.fs" />
+        <Compile Include="Templates\App.fs" />
+        <Compile Include="Templates\Index.fs" />
+        <Compile Include="Templates\NotFound.fs" />
+        <Compile Include="Templates\Timetable.fs" />
+        <None Include="app.config" />
+        <Content Include="global.json" />
+        <Content Include="static\main.css">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\main.css.map">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="sass\mixins\_colors.sass" />
+        <Content Include="sass\mixins\_reset.sass" />
+        <Content Include="sass\main.sass" />
+        <Content Include="sass\_header.sass" />
+        <Content Include="sass\_footer.sass" />
+        <Content Include="static\img\tim-logo.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\img\hex-pattern.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\img\back-tim.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\img\icon-company.svg" />
+        <Compile Include="Controllers.fs" />
+        <Compile Include="Router.fs" />
+        <Compile Include="Program.fs" />
+        <Content Include="README.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.0.78" />
+      <PackageReference Include="FSharp.Configuration" Version="2.0.0-alpha3" />
+      <PackageReference Include="Npgsql" Version="5.0.4" />
+      <PackageReference Include="Saturn" Version="0.14.1" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Models\Models.fsproj" />
+    </ItemGroup>
+
+</Project>

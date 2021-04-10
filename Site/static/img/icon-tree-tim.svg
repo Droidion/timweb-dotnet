@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+    <defs>
+        <style>
+            .cls-1 {
+            fill: #f69a12;
+            }
+        </style>
+        <symbol id="New_Symbol_69" data-name="New Symbol 69" viewBox="0 0 16 16">
+            <path class="cls-1" d="M13,10V7H9V6h3V0H5V6H8V7H3v3H0v6H7V10H4V8h8v2H9v6h7V10ZM6,11v1H1V11ZM6,2V1h5V2Zm9,10H10V11h5Z"/>
+        </symbol>
+    </defs>
+    <title>Asset 1</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Icons">
+            <use width="16" height="16" xlink:href="#New_Symbol_69"/>
+        </g>
+    </g>
+</svg>

@@ -15,6 +15,11 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ModelsSharp\ModelsSharp.csproj" />
+      <ProjectReference Include="..\Models\Models.fsproj" />
+    </ItemGroup>
+
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <DocumentationFile>bin\Debug\Api.xml</DocumentationFile>
     </PropertyGroup>
@@ -22,9 +27,5 @@
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <DocumentationFile>bin\Release\Api.xml</DocumentationFile>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Models\Models.csproj" />
-    </ItemGroup>
 
 </Project>

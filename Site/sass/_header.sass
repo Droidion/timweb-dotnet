@@ -1,0 +1,63 @@
+@use 'mixins/colors'
+
+.header
+  color: colors.$main-black-text-color
+  background: colors.$light-grey-text-color
+  border-bottom-left-radius: 6px
+  border-bottom-right-radius: 6px
+  height: 96px
+  width: 100%
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  &__left
+    align-items: center
+    display: flex
+
+  &__logo  
+    margin: 0 24px
+    height: 72px
+    width: 164px
+
+  &__title
+    position: relative
+    top: -0.2rem
+
+  &__name
+    font-size: 2.8rem
+    font-weight: bold
+    line-height: 1.05
+
+  &__about
+    font-size: 1rem
+    line-height: 1.0
+
+  &__right
+    align-items: center
+    display: flex
+
+  &__menu-item
+    align-items: center
+    display: flex
+    margin-right: .6rem
+
+    &:hover
+      cursor: pointer
+
+      div
+        color: colors.$tim-text-color-dark
+
+      path
+        fill: colors.$tim-text-color-dark
+
+  &__menu-icon
+    align-items: center
+    display: flex
+    height: 30px
+    width: 30px
+
+  &__menu-name
+    font-weight: bolder
+    margin-left: .6rem
+    width: 6rem

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 16">
+    <defs>
+        <style>
+            .cls-1 {
+            fill: #f69a12;
+            }
+        </style>
+        <symbol id="New_Symbol_101" data-name="New Symbol 101" viewBox="0 0 15 16">
+            <path d="M14,3.25V10H1V3.25H14m1-1H0V11H15V2.25Z"/>
+            <path d="M7.27,9.33,5.78,6.9,4.31,9.2,2.87,7,2.24,8.82a.25.25,0,1,1-.47-.17l1-2.79L4.31,8.28,5.78,6,7.13,8.15l1-3.23a.25.25,0,0,1,.32-.16.25.25,0,0,1,.16.31Z"/>
+            <rect x="7" y="10" width="2" height="4"/>
+            <polygon points="4.03 16 3.04 16 7 12.9 7 13.96 4.03 16"/>
+            <polygon points="11.97 16 12.96 16 9 12.9 9 13.96 11.97 16"/>
+            <rect x="7" width="2" height="3"/>
+            <rect y="1" width="15" height="2"/>
+            <circle cx="11.33" cy="5.81" r="1.31"/>
+            <rect x="10" y="8" width="1" height="1"/>
+            <rect x="12" y="8" width="1" height="1"/>
+        </symbol>
+    </defs>
+    <title>Asset 1</title>
+    <g class="cls-1" id="Layer_2" data-name="Layer 2">
+        <g id="Icons">
+            <use width="15" height="16" xlink:href="#New_Symbol_101"/>
+        </g>
+    </g>
+</svg>

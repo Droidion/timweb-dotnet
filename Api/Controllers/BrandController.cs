@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Models;
 using Sentry;
 using Timweb.Api.Services;
 using Timweb.Api.Services.Sql;
-using Timweb.Models;
 
 namespace Timweb.Api.Controllers
 {

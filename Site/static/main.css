@@ -1,0 +1,193 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+html:focus-within {
+  scroll-behavior: auto;
+}
+
+*,
+*::before,
+*::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+.header {
+  color: #252627;
+  background: #dedede;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  height: 96px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__left {
+  align-items: center;
+  display: flex;
+}
+.header__logo {
+  margin: 0 24px;
+  height: 72px;
+  width: 164px;
+}
+.header__title {
+  position: relative;
+  top: -0.2rem;
+}
+.header__name {
+  font-size: 2.8rem;
+  font-weight: bold;
+  line-height: 1.05;
+}
+.header__about {
+  font-size: 1rem;
+  line-height: 1;
+}
+.header__right {
+  align-items: center;
+  display: flex;
+}
+.header__menu-item {
+  align-items: center;
+  display: flex;
+  margin-right: 0.6rem;
+}
+.header__menu-item:hover {
+  cursor: pointer;
+}
+.header__menu-item:hover div {
+  color: #f36d27;
+}
+.header__menu-item:hover path {
+  fill: #f36d27;
+}
+.header__menu-icon {
+  align-items: center;
+  display: flex;
+  height: 30px;
+  width: 30px;
+}
+.header__menu-name {
+  font-weight: bolder;
+  margin-left: 0.6rem;
+  width: 6rem;
+}
+
+footer {
+  flex-shrink: 0;
+  color: #252627;
+  background: #dedede;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  height: 46px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body {
+  font-size: 14px;
+  line-height: 1.4;
+  font-style: normal;
+  font-family: "-apple-system", BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.layout {
+  color: #dedede;
+  position: relative;
+  min-width: 1024px;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-image: url("/img/hex-pattern.png"), url("/img/back-tim.png");
+  background-repeat: no-repeat, repeat;
+  background-position: center top, left top;
+  background-color: #141a1e;
+}
+
+.content-wrapper {
+  margin: 0 auto;
+  padding: 0 32px;
+  min-width: 1024px;
+  max-width: 1164px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+section.content {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+/*# sourceMappingURL=main.css.map */

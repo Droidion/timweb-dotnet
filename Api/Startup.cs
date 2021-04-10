@@ -74,7 +74,7 @@ namespace Timweb.Api
                     }
                 });
                 c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Api.xml"));
-                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Models.xml"));
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "ModelsSharp.xml"));
             });
         }
 
