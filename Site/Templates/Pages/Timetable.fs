@@ -11,7 +11,7 @@ module Timetable =
 
     /// Renders HTML
     let view (lang: string) (year: int) (path: string) =
-        
+
         // Load data from DB
         let years =
             YearsProvider.list |> Async.RunSynchronously

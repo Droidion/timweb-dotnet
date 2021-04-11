@@ -22,9 +22,8 @@ module Partials =
         ]
 
     /// Constructs link for the given page with given language
-    let private getLangLink (lang: string) (path: string) =
-        $"/{lang}{path.[3..]}"
-    
+    let private getLangLink (lang: string) (path: string) = $"/{lang}{path.[3..]}"
+
     /// Returns current year
     let private getCurYear = DateTime.Now.Year
 
@@ -71,7 +70,8 @@ module Partials =
     let menu (lang: string) =
         div [ _class "main-menu" ] [
             for txt, link in menuItems lang do
-                a [ _class "main-menu__el dark"; _href link ] [
+                a [ _class "main-menu__el dark"
+                    _href link ] [
                     str txt
                 ]
         ]
@@ -80,9 +80,15 @@ module Partials =
     let languageSwitcher (path: string) =
         div [ _class "lang-switcher" ] [
             div [ _class "lang-switcher__el" ] [
-                a [ _href <| getLangLink "ru" path; _class "light" ] [ str "Русский" ]
+                a [ _href <| getLangLink "ru" path
+                    _class "light" ] [
+                    str "Русский"
+                ]
             ]
             div [ _class "lang-switcher__el" ] [
-                a [ _href <| getLangLink "en" path; _class "light" ] [ str "English" ]
+                a [ _href <| getLangLink "en" path
+                    _class "light" ] [
+                    str "English"
+                ]
             ]
         ]

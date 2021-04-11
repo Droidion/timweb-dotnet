@@ -20,9 +20,15 @@ let app =
         use_static "static"
         use_gzip
         memory_cache
-        app_config (fun app ->
-            let env = Environment.getWebHostEnvironment app
-            if (env.IsDevelopment()) then app.UseDeveloperExceptionPage() else app)
+
+        app_config
+            (fun app ->
+                let env = Environment.getWebHostEnvironment app
+
+                if (env.IsDevelopment()) then
+                    app.UseDeveloperExceptionPage()
+                else
+                    app)
     }
 
 

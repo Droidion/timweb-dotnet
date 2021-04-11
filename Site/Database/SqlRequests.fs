@@ -4,7 +4,7 @@ open Models
 
 /// SQL requests
 module SqlRequests =
-    
+
     /// Returns SQL request for getting timetable
     let getTimetable (lang: string) (direction: TimetableDirection) =
         let yearClause =
