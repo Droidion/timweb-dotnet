@@ -1,22 +1,24 @@
 namespace Site
 
+open System 
+open Legivel.Serialization
+
+type Trans = Map<string,Map<string,string>> 
 
 module Translations =
+    
+    let mutable private trans: Trans option = None
+    
+    /// Loads translations from YAML file
+    let loadTranslations: unit =
+        let yaml = IO.File.ReadAllText @"Translations.yaml"
+        let parsed = Deserialize<Trans> yaml
+        let foo: DeserializeResult<Trans> = parsed.[0]
+        trans <- match foo with | Success res -> Some res.Data | _ -> None 
 
-    let private translations =
-        [ "CompanyName",
-          [ "en", "TIM Group"
-            "ru", "Группа ТИМ" ]
-          |> Map.ofList
-          "CompanyDescription",
-          [ "en", "Trainings & Computer Modeling"
-            "ru", "Тренинги и компьютерное моделирование" ]
-          |> Map.ofList ]
-        |> Map.ofList
-
+    /// Returns translation for given key and language
     let getTranslation (key: string) (lang: string) : string =
-        if Map.containsKey key translations
-           && Map.containsKey lang translations.[key] then
-            translations.[key].[lang]
-        else
-            ""
+        match trans with
+        | Some tr when Map.containsKey key tr ->
+            if Map.containsKey lang tr.[key] then tr.[key].[lang] else ""
+        | _ -> ""

@@ -4,11 +4,13 @@ open Microsoft.AspNetCore.Builder
 open FSharp.Configuration
 open Site
 open Site.Database
+open Site.Translations
 
 // Load db connection string from file and store in memory
 type Settings = YamlConfig<"Config.yaml">
 let config = Settings()
 Helpers.conn <- config.DB.ConnectionString
+loadTranslations
 
 /// Saturn app
 let app =

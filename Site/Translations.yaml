@@ -1,0 +1,47 @@
+CompanyName:
+  en: "TIM Group"
+  ru: "Группа ТИМ"
+  
+CompanyDescription:
+  en: "Trainings & Computer Modeling"
+  ru: "Тренинги и компьютерное моделирование"
+  
+Timetable:
+  en: "Timetable"
+  ru: "Расписание"
+  
+Seminars:
+  en: "Seminars"
+  ru: "Семинары"
+
+Customers:
+  en: "Customers"
+  ru: "Заказчики"
+  
+Geography:
+  en: "Geography"
+  ru: "География"
+  
+Feedback:
+  en: "Feedback"
+  ru: "Отзывы"
+  
+Contact:
+  en: "Contact Us"
+  ru: "Связаться"
+  
+Rating:
+  en: "VINK Rating"
+  ru: "Рейтинг ВИНК"
+  
+Company:
+  en: "Company"
+  ru: "Компания"
+  
+Vink:
+  en: "Simulation VINK"
+  ru: "Игра ВИНК"
+  
+Talks:
+  en: "Simulation Talks"
+  ru: "Игра Переговоры"

@@ -21,19 +21,21 @@ module Partials =
             ]
         ]
 
-    let private getLangLing (lang: string) (path: string) =
+    /// Constructs link for the given page with given language
+    let private getLangLink (lang: string) (path: string) =
         $"/{lang}{path.[3..]}"
     
+    /// Returns current year
     let private getCurYear = DateTime.Now.Year
 
     let private menuItems lang =
-        [ ("Timetable", $"/{lang}/timetable/{getCurYear}")
-          ("Seminars", $"/{lang}/seminars")
-          ("Customers", $"/{lang}/customers")
-          ("Geography", $"/{lang}/geography")
-          ("Feedback", $"/{lang}/feedback")
-          ("Contact Us", $"/{lang}/contact")
-          ("VINK Rating", $"/{lang}/rating") ]
+        [ (getTranslation "Timetable" lang, $"/{lang}/timetable/{getCurYear}")
+          (getTranslation "Seminars" lang, $"/{lang}/seminars")
+          (getTranslation "Customers" lang, $"/{lang}/customers")
+          (getTranslation "Geography" lang, $"/{lang}/geography")
+          (getTranslation "Feedback" lang, $"/{lang}/feedback")
+          (getTranslation "Contact" lang, $"/{lang}/contact")
+          (getTranslation "Rating" lang, $"/{lang}/rating") ]
 
     /// Header
     let header lang =
@@ -54,9 +56,9 @@ module Partials =
           ]
 
           div [ _class "header__right" ] [
-              getTopMenuEl Svg.companyIcon "Company" $"/{lang}/company"
-              getTopMenuEl Svg.vinkIcon "Simulation VINK" $"/{lang}/vink"
-              getTopMenuEl Svg.negotiationsIcon "Simulation Negotiations" $"/{lang}/talks"
+              getTopMenuEl Svg.companyIcon (getTranslation "Company" lang) $"/{lang}/company"
+              getTopMenuEl Svg.vinkIcon (getTranslation "Vink" lang) $"/{lang}/vink"
+              getTopMenuEl Svg.negotiationsIcon (getTranslation "Talks" lang) $"/{lang}/talks"
           ] ]
 
     /// Footer
@@ -74,12 +76,13 @@ module Partials =
                 ]
         ]
 
+    /// Block for switching UI language
     let languageSwitcher (path: string) =
         div [ _class "lang-switcher" ] [
             div [ _class "lang-switcher__el" ] [
-                a [ _href <| getLangLing "ru" path; _class "light" ] [ str "Русский" ]
+                a [ _href <| getLangLink "ru" path; _class "light" ] [ str "Русский" ]
             ]
             div [ _class "lang-switcher__el" ] [
-                a [ _href <| getLangLing "en" path; _class "light" ] [ str "English" ]
+                a [ _href <| getLangLink "en" path; _class "light" ] [ str "English" ]
             ]
         ]
