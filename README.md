@@ -6,7 +6,7 @@ Here is the rewrite friendly site [timseminar.ru](https://timseminar.ru) from an
 
 Stack:
 
-- F#/C#.
+- F#.
 - .NET 5 
 - Razor Pages, Blazor.
 - Postgres 13
