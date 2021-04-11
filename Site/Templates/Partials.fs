@@ -28,12 +28,12 @@ module Partials =
 
     let private menuItems lang =
         [ ("Timetable", $"/{lang}/timetable/{getCurYear}")
-          ("Seminars", "/seminars")
-          ("Customers", "/customers")
-          ("Geography", "/geography")
-          ("Feedback", "/feedback")
-          ("Contact Us", "/contact")
-          ("VINK Rating", "/vink-rating") ]
+          ("Seminars", $"/{lang}/seminars")
+          ("Customers", $"/{lang}/customers")
+          ("Geography", $"/{lang}/geography")
+          ("Feedback", $"/{lang}/feedback")
+          ("Contact Us", $"/{lang}/contact")
+          ("VINK Rating", $"/{lang}/rating") ]
 
     /// Header
     let header lang =
@@ -56,7 +56,7 @@ module Partials =
           div [ _class "header__right" ] [
               getTopMenuEl Svg.companyIcon "Company" $"/{lang}/company"
               getTopMenuEl Svg.vinkIcon "Simulation VINK" $"/{lang}/vink"
-              getTopMenuEl Svg.negotiationsIcon "Simulation Negotiations" $"/{lang}/negotiations"
+              getTopMenuEl Svg.negotiationsIcon "Simulation Negotiations" $"/{lang}/talks"
           ] ]
 
     /// Footer

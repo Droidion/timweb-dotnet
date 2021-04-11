@@ -4,11 +4,11 @@ open Giraffe.ViewEngine
 open Site.Templates
 
 /// Main page template
-module Company =
+module Contact =
     
     /// Renders HTML
     let view (lang: string) (path: string) =
-        let pageTitle = "Index Page"
+        let pageTitle = "Contact Page"
         [
             h1 [] [ str pageTitle ]
         ] |> App.view pageTitle lang path

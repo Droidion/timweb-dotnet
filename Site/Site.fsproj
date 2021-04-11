@@ -18,6 +18,14 @@
         <Compile Include="Templates\Pages\Timetable.fs" />
         <Compile Include="Templates\Pages\NotFound.fs" />
         <Compile Include="Templates\Pages\Company.fs" />
+        <Compile Include="Templates\Pages\Seminars.fs" />
+        <Compile Include="Templates\Pages\Customers.fs" />
+        <Compile Include="Templates\Pages\Geography.fs" />
+        <Compile Include="Templates\Pages\Feedback.fs" />
+        <Compile Include="Templates\Pages\Contact.fs" />
+        <Compile Include="Templates\Pages\Rating.fs" />
+        <Compile Include="Templates\Pages\Vink.fs" />
+        <Compile Include="Templates\Pages\Talks.fs" />
         <None Include="app.config" />
         <Content Include="global.json" />
         <Content Include="static\main.css">
