@@ -12,5 +12,5 @@ module Company =
         [
             h1 [] [ str pageTitle ]
             p [] [ str "Hello world!" ]
-        ] |> App.view pageTitle
+        ] |> App.view pageTitle lang
 

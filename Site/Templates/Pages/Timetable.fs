@@ -69,4 +69,4 @@ module Timetable =
           ]
           h2 [] [ str "Past Seminars" ]
           renderTable timetablePast ]
-        |> App.view pageTitle
+        |> App.view pageTitle lang

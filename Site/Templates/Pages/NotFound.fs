@@ -7,9 +7,9 @@ open Site.Templates
 module NotFound =
     
     /// Renders HTML
-    let view =
+    let view lang =
         let pageTitle = "Page not found"
 
         [ h1 [] [ str pageTitle ]
           p [] [ str "We are sorry" ] ]
-        |> App.view pageTitle
+        |> App.view pageTitle lang

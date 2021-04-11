@@ -7,6 +7,7 @@
 
     <ItemGroup>
         <Content Include="Config.yaml" />
+        <Compile Include="Translations.fs" />
         <Compile Include="Database\SqlRequests.fs" />
         <Compile Include="Database\Helpers.fs" />
         <Compile Include="Database\YearsProvider.fs" />
