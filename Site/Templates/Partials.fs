@@ -12,6 +12,17 @@ module Partials =
             div [ _class "header__menu-icon" ] [ icon ]
             div [ _class "header__menu-name" ] [ str text ]
         ]
+        
+    let private menuItems =
+        [
+            ("Timetable", "/timetable")
+            ("Seminars", "/seminars")
+            ("Customers", "/customers")
+            ("Geography", "/geography")
+            ("Feedback", "/feedback")
+            ("Contact Us", "/contact")
+            ("VINK Rating", "/vink-rating")
+        ]
 
     /// Header
     let header =
@@ -33,4 +44,9 @@ module Partials =
           ] ]
 
     /// Footer
-    let footer = [ div [] [ str "Footer" ] ]
+    let footer = [ div [] [ str "© 2005–2021 TIM Group. All right reserved." ] ]
+    
+    let menu = div [ _class "main-menu" ] [
+        for txt, link in menuItems do
+            a [ _class "main-menu__el"; _href link ] [ str txt ]
+    ]

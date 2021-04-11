@@ -18,6 +18,7 @@ module App =
                 div [ _class "layout" ] [
                     div [ _class "content-wrapper" ] [
                         header [ _class "header" ] Partials.header
+                        Partials.menu
                         section [ _class "content" ] content
                         footer [] Partials.footer
                     ]

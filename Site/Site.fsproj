@@ -30,6 +30,7 @@
         <Content Include="sass\main.sass" />
         <Content Include="sass\_header.sass" />
         <Content Include="sass\_footer.sass" />
+        <Content Include="sass\_menu.sass" />
         <Content Include="static\img\tim-logo.png">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
