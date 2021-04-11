@@ -12,7 +12,8 @@ module Translations =
     /// Loads translations from YAML file
     let loadTranslations : unit =
         let transResult =
-            IO.File.ReadAllText @"Translations.yaml"
+            @"Translations.yaml"
+            |> IO.File.ReadAllText 
             |> Deserialize<Trans>
             |> List.head
 
