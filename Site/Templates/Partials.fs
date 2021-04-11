@@ -1,5 +1,6 @@
 namespace Site.Templates
 
+open System
 open Giraffe.GiraffeViewEngine
 open Site.Templates
 
@@ -13,9 +14,12 @@ module Partials =
             div [ _class "header__menu-name" ] [ str text ]
         ]
         
+    let private getCurYear =
+        DateTime.Now.Year
+        
     let private menuItems =
         [
-            ("Timetable", "/timetable")
+            ("Timetable", $"/en/timetable/{getCurYear}")
             ("Seminars", "/seminars")
             ("Customers", "/customers")
             ("Geography", "/geography")
@@ -44,7 +48,8 @@ module Partials =
           ] ]
 
     /// Footer
-    let footer = [ div [] [ str "© 2005–2021 TIM Group. All right reserved." ] ]
+    let footer =
+        [ div [] [ str $"© 2005–{getCurYear} TIM Group. All right reserved." ] ]
     
     let menu = div [ _class "main-menu" ] [
         for txt, link in menuItems do

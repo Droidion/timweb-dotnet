@@ -1,4 +1,4 @@
-namespace Site.Templates
+namespace Site.Templates.Pages
 
 open Giraffe.GiraffeViewEngine
 open Models
@@ -37,7 +37,7 @@ module Timetable =
 
         /// Renders timetable table
         let renderTable timetable =
-            table [ _class "some-css-class" ] [
+            table [ _class "timetable" ] [
                 tableHeader
                 for el in timetable do
                     tr [] [

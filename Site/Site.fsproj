@@ -14,9 +14,9 @@
         <Compile Include="Templates\Svg.fs" />
         <Compile Include="Templates\Partials.fs" />
         <Compile Include="Templates\App.fs" />
-        <Compile Include="Templates\Index.fs" />
-        <Compile Include="Templates\NotFound.fs" />
-        <Compile Include="Templates\Timetable.fs" />
+        <Compile Include="Templates\Pages\Timetable.fs" />
+        <Compile Include="Templates\Pages\NotFound.fs" />
+        <Compile Include="Templates\Pages\Company.fs" />
         <None Include="app.config" />
         <Content Include="global.json" />
         <Content Include="static\main.css">
@@ -31,6 +31,7 @@
         <Content Include="sass\_header.sass" />
         <Content Include="sass\_footer.sass" />
         <Content Include="sass\_menu.sass" />
+        <Content Include="sass\_timetable.sass" />
         <Content Include="static\img\tim-logo.png">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>

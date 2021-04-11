@@ -1,4 +1,4 @@
-namespace Site.Templates
+namespace Site.Templates.Pages
 
 open Giraffe.GiraffeViewEngine
 open Site.Templates

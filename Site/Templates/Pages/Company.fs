@@ -1,13 +1,13 @@
-namespace Site.Templates
+namespace Site.Templates.Pages
 
 open Giraffe.GiraffeViewEngine
 open Site.Templates
 
 /// Main page template
-module Index =
+module Company =
     
     /// Renders HTML
-    let view =
+    let view (lang: string) =
         let pageTitle = "Index Page"
         [
             h1 [] [ str pageTitle ]
