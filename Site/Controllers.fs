@@ -20,13 +20,14 @@ module Controllers =
         controller {
             show
                 (fun ctx year ->
-                    (Timetable.view lang year)
+                    (Timetable.view lang year ctx.Request.Path.Value)
                     |> Controller.renderHtml ctx)
         }
 
     /// Timetable page controller (it's also index page)
     let companyController lang =
-        controller { index (fun ctx -> (Company.view lang) |> Controller.renderHtml ctx) }
+        let handler = fun (ctx: HttpContext) -> (Company.view lang ctx.Request.Path.Value) |> Controller.renderHtml ctx
+        controller { index handler }
 
     /// Controller for choosing the language 
     let langController =

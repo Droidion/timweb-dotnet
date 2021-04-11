@@ -1,7 +1,7 @@
 namespace Site.Templates
 
 open System
-open Giraffe.GiraffeViewEngine
+open Giraffe.ViewEngine
 open Site.Templates
 open Site.Translations
 
@@ -10,7 +10,7 @@ module Partials =
 
     /// Renders top menu item
     let private getTopMenuEl icon text url =
-        a [ _href url ] [
+        a [ _href url; _class "dark" ] [
             div [ _class "header__menu-item" ] [
                 div [ _class "header__menu-icon" ] [
                     icon
@@ -21,7 +21,9 @@ module Partials =
             ]
         ]
 
-
+    let private getLangLing (lang: string) (path: string) =
+        $"/{lang}{path.[3..]}"
+    
     let private getCurYear = DateTime.Now.Year
 
     let private menuItems lang =
@@ -67,7 +69,17 @@ module Partials =
     let menu (lang: string) =
         div [ _class "main-menu" ] [
             for txt, link in menuItems lang do
-                a [ _class "main-menu__el"; _href link ] [
+                a [ _class "main-menu__el dark"; _href link ] [
                     str txt
                 ]
+        ]
+
+    let languageSwitcher (path: string) =
+        div [ _class "lang-switcher" ] [
+            div [ _class "lang-switcher__el" ] [
+                a [ _href <| getLangLing "ru" path; _class "light" ] [ str "Русский" ]
+            ]
+            div [ _class "lang-switcher__el" ] [
+                a [ _href <| getLangLing "en" path; _class "light" ] [ str "English" ]
+            ]
         ]

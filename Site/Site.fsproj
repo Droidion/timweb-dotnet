@@ -53,7 +53,7 @@
       <PackageReference Include="Dapper" Version="2.0.78" />
       <PackageReference Include="FSharp.Configuration" Version="2.0.0-alpha3" />
       <PackageReference Include="Npgsql" Version="5.0.4" />
-      <PackageReference Include="Saturn" Version="0.14.1" />
+      <PackageReference Include="Saturn" Version="0.15.0-preview03" />
       <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     </ItemGroup>
 

@@ -9,7 +9,7 @@ body
   font-size: 14px
   line-height: 1.4
   font-style: normal
-  font-family: "-apple-system", BlinkMacSystemFont, "Segoe UI", Arial, sans-serif
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
 
 svg
   width: 100%
@@ -18,8 +18,17 @@ svg
 a
   color: colors.$main-black-text-color
   text-decoration: none
-  
-  &:hover
+    
+  &.light
+    color: colors.$color-white
+    
+  &.light:hover
+    color: colors.$grey-text-color
+    
+  &.dark
+    color: colors.$main-black-text-color
+    
+  &.dark:hover
     color: colors.$tim-text-color-dark
 
 .layout

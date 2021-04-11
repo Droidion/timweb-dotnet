@@ -1,6 +1,6 @@
 namespace Site.Templates.Pages
 
-open Giraffe.GiraffeViewEngine
+open Giraffe.ViewEngine
 open Models
 open Site.Database
 open Site.Templates
@@ -10,7 +10,7 @@ module Timetable =
     let private dateFormat = "dd.MM.yyyy"
 
     /// Renders HTML
-    let view (lang: string) (year: int) =
+    let view (lang: string) (year: int) (path: string) =
         
         // Load data from DB
         let years =
@@ -69,4 +69,4 @@ module Timetable =
           ]
           h2 [] [ str "Past Seminars" ]
           renderTable timetablePast ]
-        |> App.view pageTitle lang
+        |> App.view pageTitle lang path

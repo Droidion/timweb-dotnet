@@ -2,7 +2,7 @@ namespace Site.Templates
 
 /// SVG images to be used inline in HTML templates
 module Svg =
-    open Giraffe.GiraffeViewEngine
+    open Giraffe.ViewEngine
 
     // Register SVG-specific tags
     let private svg = tag "svg"
