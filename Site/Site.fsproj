@@ -36,14 +36,13 @@
         </Content>
         <Content Include="sass\mixins\_colors.sass" />
         <Content Include="sass\mixins\_reset.sass" />
+        <Content Include="sass\mixins\_buttons.sass" />
+        <Content Include="sass\mixins\_media.sass" />
         <Content Include="sass\main.sass" />
         <Content Include="sass\_header.sass" />
         <Content Include="sass\_footer.sass" />
         <Content Include="sass\_menu.sass" />
-        <Content Include="sass\_timetable.sass" />
-        <Content Include="static\img\tim-logo.png">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
+        <Content Include="sass\_table.sass" />
         <Content Include="static\img\hex-pattern.png">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
@@ -58,9 +57,13 @@
         <Content Include="Translations.yaml">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <Content Include="static\img\tim-logo.svg">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Update="FSharp.Core" Version="5.0.1"/>
       <PackageReference Include="Dapper" Version="2.0.78" />
       <PackageReference Include="FSharp.Configuration" Version="2.0.0-alpha3" />
       <PackageReference Include="Legivel" Version="0.4.6" />

@@ -1,0 +1,48 @@
+@use 'mixins/media'
+
+@use 'mixins/colors'
+
+.table
+  width: 100%
+  
+  &__header
+    border-bottom: 1px solid colors.$tim-text-color-light
+    color: colors.$tim-text-color-light
+    display: none
+
+    @include media.for-desktop-up
+      display: flex
+    
+  &__cell
+    margin: 0.4rem 0
+    padding-right: 0
+    width: 100%
+
+    @include media.for-desktop-up
+      margin: 0.6rem 0
+      padding-right: 1rem
+      width: 25%
+  
+    span
+      color: colors.$grey-text-color
+    
+  &__cell-subtitle
+    color: colors.$tim-text-color-light
+  
+  &__row
+    display: block
+    flex-wrap: wrap
+    padding: 0.2rem 0
+    width: 100%
+    border-bottom: 1px dashed colors.$grey-text-color
+    
+    &:last-child
+      border-bottom: none
+
+    @include media.for-desktop-up
+      display: flex
+      padding: 0    
+      
+  &:last-child
+    border-bottom: none
+    

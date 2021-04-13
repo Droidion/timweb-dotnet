@@ -40,9 +40,7 @@ module Partials =
     let header lang =
         [ a [ _href "/" ] [
             div [ _class "header__left" ] [
-                div [ _class "header__logo" ] [
-                    Svg.timLogo
-                ]
+                img [ _src "/img/tim-logo.svg"; _class "header__logo" ]
                 div [ _class "header__title" ] [
                     div [ _class "header__name" ] [
                         str <| getTranslation "CompanyName" lang

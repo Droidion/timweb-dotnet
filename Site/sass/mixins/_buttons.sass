@@ -1,0 +1,18 @@
+@use 'colors'
+
+.button
+  background: colors.$grey-text-color-darker
+  border: none
+  border-radius: 4px
+  color: colors.$color-white
+  font-size: 0.8rem
+  line-height: 1.6rem
+  
+  &_selected
+    color: colors.$main-black-text-color
+    background: colors.$tim-text-color-light
+  
+  &:hover
+    color: colors.$main-black-text-color
+    cursor: pointer
+    background: colors.$tim-text-color-dark

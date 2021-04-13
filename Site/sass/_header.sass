@@ -1,41 +1,63 @@
 @use 'mixins/colors'
+@use 'mixins/media'
 
 .header
   color: colors.$main-black-text-color
   background: colors.$light-grey-text-color
   border-bottom-left-radius: 6px
   border-bottom-right-radius: 6px
-  height: 96px
   width: 100%
-  display: flex
+  display: block
   justify-content: space-between
   align-items: center
+  padding: 0.4rem 0.8rem
+  flex-wrap: wrap
+
+  @include media.for-desktop-up
+    display: flex
+    padding: 1rem
 
   &__left
     align-items: center
     display: flex
 
   &__logo  
-    margin: 0 24px
-    height: 72px
-    width: 164px
+    margin-right: 12px
+    height: 36px
+    width: 82px
+
+    @include media.for-desktop-up
+      margin-right: 24px
+      height: 72px
+      width: 164px
 
   &__title
     position: relative
-    top: -0.2rem
+    top: -0.1rem
+
+    @include media.for-desktop-up
+      top: -0.2rem
 
   &__name
-    font-size: 2.8rem
+    font-size: 1.2rem
     font-weight: bold
     line-height: 1.05
+
+    @include media.for-desktop-up
+      font-size: 2.8rem
 
   &__about
     font-size: 1rem
     line-height: 1.0
 
   &__right
-    align-items: center
     display: flex
+    margin-top: 0.2rem
+    align-items: center
+    justify-content: center
+
+    @include media.for-desktop-up
+      margin-top: 0
 
   &__menu-item
     align-items: center
@@ -53,11 +75,22 @@
 
   &__menu-icon
     align-items: center
-    display: flex
+    display: none
     height: 30px
     width: 30px
 
+    @include media.for-desktop-up
+      display: flex
+
   &__menu-name
     font-weight: bolder
-    margin-left: .6rem
+    margin-left: 0
     width: 6rem
+    font-size: 1rem
+    text-align: center
+    line-height: 1.2
+
+    @include media.for-desktop-up
+      margin-left: .6rem
+      text-align: left
+      line-height: 1.4

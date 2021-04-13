@@ -4,7 +4,7 @@ CompanyName:
   
 CompanyDescription:
   en: "Trainings & Computer Modeling"
-  ru: "Тренинги и компьютерное моделирование"
+  ru: "Тренинги и компьютерные модели"
   
 Timetable:
   en: "Timetable"
@@ -45,3 +45,27 @@ Vink:
 Talks:
   en: "Simulation Talks"
   ru: "Игра Переговоры"
+  
+PastSeminars:
+  en: "Past Seminars"
+  ru: "Прошедшие семинары"
+  
+FutureSeminars:
+  en: "Future Seminars"
+  ru: "Запланированные семинары"
+  
+Date:
+  en: "Date"
+  ru: "Дата"
+
+Seminar:
+  en: "Seminar"
+  ru: "Семинар"
+  
+City:
+  en: "City"
+  ru: "Город"
+  
+Clients:
+  en: "Clients"
+  ru: "Заказчики"

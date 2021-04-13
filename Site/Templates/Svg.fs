@@ -52,36 +52,6 @@ module Svg =
 
         path rules []
 
-
-    /// TIM Group logo
-    let timLogo =
-        getBaseSvg
-            "0 0 756 334"
-            [ makePath (makeColor Color.Black) "m520 45h236v244h-236z" None
-              makePath (makeColor Color.OrangeBrighter) "m638.004 218-64.004-142 64-50.9961z" (Some ruleEvenOdd)
-              makePath (makeColor Color.OrangeDarker) "m638 218 64-142.0039-64-50.9961z" (Some ruleEvenOdd)
-              makePath (makeColor Color.Black) "m260 45h236v244h-236z" None
-              g [ attr "clip-rule" ruleEvenOdd
-                  attr "fill-rule" ruleEvenOdd ] [
-                  makePath (makeColor Color.OrangeBrighter) "m313.746 191.173v-146.0001l74-20z" None
-                  makePath (makeColor Color.OrangeDarker) "m313.462 191.427 108.499-97.693-34.652-68.3754z" None
-                  makePath (makeColor Color.OrangeDarker) "m441.399 143.408v146l-74 20z" None
-                  makePath (makeColor Color.OrangeBrighter) "m441.682 143.153-108.499 97.694 34.653 68.375z" None
-              ]
-              makePath (makeColor Color.Black) "m0 116h236v172h-236z" None
-              makePath (makeColor Color.Black) "m118 25h118v74h-118z" None
-              makePath (makeColor Color.OrangeBrighter) "m0 25h118v74h-118z" None
-              makePath
-                  (makeColor Color.Black)
-                  "m52.9961 46 .0039 32h-5c-.5523 0-1 .4477-1 1v6.0039c0 .5523.4477 1 1 1h23c.5523 0 1-.4477 1-1v-6.0076c0-.5523-.4477-1-1-1h-5v-31.9963h5.0016c.5523 0 1-.4477 1-1v-6c0-.5523-.4477-1-1-1h-23.0016c-.5523 0-1 .4477-1 1v6c0 .5523.4477 1 1 1z"
-                  (Some ruleEvenOdd)
-              makePath
-                  (makeColor Color.White)
-                  "m158 59.1159c0-10.5713 4.382-21.1157 17.737-21.1159 13.356-.0002 17.738 10.0962 17.738 21.1159 0 6.1479-1.118 12.5177-4.562 16.9575l6.265 3.993c.598.3815.62 1.2477.041 1.6586l-5.708 4.0539c-.233.165-.524.2218-.793.1274-.705-.2475-2.243-.904-4.323-2.4545-1.191-.8878-1.974-1.749-2.482-2.4561-1.792.5896-3.84.9167-6.176.9254-14.148.0525-17.737-12.2339-17.737-22.8052zm10.98.2923c0-6.912 1.67-13.8063 6.757-13.8065 5.088-.0001 6.757 6.6014 6.757 13.8065 0 7.2052-1.367 14.8767-6.757 14.911-5.389.0344-6.757-7.999-6.757-14.911z"
-                  (Some ruleEvenOdd)
-              makePath (makeColor Color.OrangeDarker) "m117.996 116 64.004 142-64 50.996z" (Some ruleEvenOdd)
-              makePath (makeColor Color.OrangeBrighter) "m118 116-64 142.004 64 50.996z" (Some ruleEvenOdd) ]
-
     /// Company icon
     let companyIcon =
         getBaseSvg
