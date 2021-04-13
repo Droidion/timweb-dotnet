@@ -16,6 +16,22 @@ module App =
                 meta [ _charset "utf-8" ]
                 meta [ _name "viewport"
                        _content "width=device-width, initial-scale=1.0" ]
+                link [ _rel "apple-touch-icon"
+                       _sizes "180x180"
+                       _href "/apple-touch-icon.png" ]
+                link [ _rel "icon"
+                       _type "image/png"
+                       _href "/favicon-32x32.png"
+                       _sizes "32x32" ]
+                link [ _rel "icon"
+                       _type "image/png"
+                       _href "/favicon-16x16.png"
+                       _sizes "16x16" ]
+                link [ _rel "manifest"
+                       _href "/manifest.json" ]
+                link [ _rel "mask-icon"
+                       _href "safari-pinned-tab.svg"
+                       _color "#5bbad5" ]
                 link [ _rel "preload"
                        attr "as" "style"
                        _href "/main.css" ]

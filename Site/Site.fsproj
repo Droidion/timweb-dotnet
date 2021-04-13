@@ -60,10 +60,37 @@
         <Content Include="static\img\tim-logo.svg">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <Content Include="static\favicon.ico">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\manifest.json">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\browserconfig.xml">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\favicon-16x16.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\favicon-32x32.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\apple-touch-icon.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\safari-pinned-tab.svg">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\android-chrome-192x192.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="static\android-chrome-512x512.png">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Update="FSharp.Core" Version="5.0.1"/>
+      <PackageReference Update="FSharp.Core" Version="5.0.1" />
       <PackageReference Include="Dapper" Version="2.0.78" />
       <PackageReference Include="FSharp.Configuration" Version="2.0.0-alpha3" />
       <PackageReference Include="Legivel" Version="0.4.6" />
