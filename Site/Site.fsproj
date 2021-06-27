@@ -26,76 +26,24 @@
         <Compile Include="Templates\Pages\Rating.fs" />
         <Compile Include="Templates\Pages\Vink.fs" />
         <Compile Include="Templates\Pages\Talks.fs" />
-        <None Include="app.config" />
-        <Content Include="global.json" />
-        <Content Include="static\main.css">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        <Content Include="static\**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
-        <Content Include="static\main.css.map">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="sass\mixins\_colors.sass" />
-        <Content Include="sass\mixins\_reset.sass" />
-        <Content Include="sass\mixins\_buttons.sass" />
-        <Content Include="sass\mixins\_media.sass" />
-        <Content Include="sass\main.sass" />
-        <Content Include="sass\_header.sass" />
-        <Content Include="sass\_footer.sass" />
-        <Content Include="sass\_menu.sass" />
-        <Content Include="sass\_table.sass" />
-        <Content Include="static\img\hex-pattern.png">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\img\back-tim.png">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\img\icon-company.svg" />
         <Compile Include="Controllers.fs" />
         <Compile Include="Router.fs" />
         <Compile Include="Program.fs" />
-        <Content Include="README.md" />
         <Content Include="Translations.yaml">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\img\tim-logo.svg">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\favicon.ico">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\manifest.json">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\browserconfig.xml">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\favicon-16x16.png">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\favicon-32x32.png">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\apple-touch-icon.png">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\safari-pinned-tab.svg">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\android-chrome-192x192.png">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="static\android-chrome-512x512.png">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Update="FSharp.Core" Version="5.0.1" />
-      <PackageReference Include="Dapper" Version="2.0.78" />
+      <PackageReference Update="FSharp.Core" Version="5.0.2" />
+      <PackageReference Include="Dapper" Version="2.0.90" />
       <PackageReference Include="FSharp.Configuration" Version="2.0.0-alpha3" />
       <PackageReference Include="Legivel" Version="0.4.6" />
-      <PackageReference Include="Npgsql" Version="5.0.4" />
-      <PackageReference Include="Saturn" Version="0.15.0-preview03" />
+      <PackageReference Include="Npgsql" Version="5.0.7" />
+      <PackageReference Include="Saturn" Version="0.15.0" />
       <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     </ItemGroup>
 

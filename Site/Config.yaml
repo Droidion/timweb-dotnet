@@ -1,2 +1,2 @@
 DB:
-  ConnectionString: host=localhost;Database=tim;;Minimum Pool Size=10
+  ConnectionString: host=localhost;Database=timsite;Minimum Pool Size=10
