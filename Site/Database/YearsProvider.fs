@@ -1,17 +1,20 @@
 namespace Site.Database
 
-open System.Data
+open System.Threading.Tasks
+open Models
+
 
 /// Data provider for working with years
 module YearsProvider =
     open Helpers
-
+    
     /// Maps Dapper result to F# record
-    let private mapper (reader: IDataReader) : int list =
-        [ while reader.Read() do
-              yield reader.GetInt32(reader.GetOrdinal "year") ]
+    let private mapper (read : RowReader) =
+        {
+            year = read.int "year"
+        }
 
     /// Returns the list of years
-    let list : Async<int seq> =
+    let list : Async<Year list> =
         let sql = SqlRequests.years
-        query<int> sql None mapper
+        query<Year> sql [] mapper

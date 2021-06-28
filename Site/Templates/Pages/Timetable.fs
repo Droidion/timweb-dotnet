@@ -55,7 +55,9 @@ module Timetable =
 
         // Load data from DB
         let years =
-            YearsProvider.list |> Async.RunSynchronously
+            YearsProvider.list
+            |> Async.RunSynchronously
+            |> List.map (fun el -> el.year)
 
         let timetableFuture =
             TimetableProvider.list lang year TimetableDirection.Future
@@ -90,8 +92,7 @@ module Timetable =
             div [ _class "table" ] [
                 tableHeader
                 for el in timetable do
-                    let curMonth =
-                        el.dateStart.ToString("MMMM", lang |> getCulture)
+                    let curMonth = el.dateStart.ToString("MMMM", lang |> getCulture)
 
                     if pastMonth <> curMonth then
                         pastMonth <- curMonth
@@ -104,8 +105,7 @@ module Timetable =
 
                     div [ _class "table__row table__row-regular" ] [
                         div [ _class "table__cell" ] [
-                            formatYear el.dateStart el.dateFinish lang
-                            |> rawText
+                            formatYear el.dateStart el.dateFinish lang |> rawText
                         ]
                         div [ _class "table__cell" ] [
                             el.seminar |> string |> str
@@ -120,8 +120,12 @@ module Timetable =
             ]
 
         // HTML
-        [ h1 [] [ getTranslation "Timetable" lang |> str ]
-          h2 [] [ getTranslation "FutureSeminars" lang |> str ]
+        [ h1 [] [
+            getTranslation "Timetable" lang |> str
+          ]
+          h2 [] [
+              getTranslation "FutureSeminars" lang |> str
+          ]
           renderTable timetableFuture
           div [ _class "years-selector" ] [
               for el in years do
@@ -131,6 +135,8 @@ module Timetable =
                       ]
                   ]
           ]
-          h2 [] [ getTranslation "PastSeminars" lang |> str ]
+          h2 [] [
+              getTranslation "PastSeminars" lang |> str
+          ]
           renderTable timetablePast ]
         |> App.view pageTitle lang path

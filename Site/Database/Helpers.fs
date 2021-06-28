@@ -1,9 +1,8 @@
 namespace Site.Database
 
 open System.Data
-open Dapper
-open Npgsql
-open System.Collections.Generic
+open System.Threading.Tasks
+open Npgsql.FSharp
 
 /// Database-related helpers
 module Helpers =
@@ -20,20 +19,13 @@ module Helpers =
     // Makes simple SELECT to the database
     let query<'a>
         (sql: string)
-        (data: IDictionary<string, obj> option)
-        (mapper: IDataReader -> 'a list)
-        : Async<seq<'a>> =
-        async {
-            use conn = new NpgsqlConnection(conn)
-
-            let data =
-                match data with
-                | Some d -> d
-                | None -> null
-
-            use! reader =
-                conn.ExecuteReaderAsync(sql, data)
-                |> Async.AwaitTask
-
-            return mapper reader |> List.toSeq
-        }
+        (data: (string * SqlValue) list)
+        (mapper: RowReader -> 'a)
+        : Async<'a list> =
+            
+        conn
+        |> Sql.connect
+        |> Sql.query sql
+        |> Sql.parameters data
+        |> Sql.executeAsync mapper
+        |> Async.AwaitTask

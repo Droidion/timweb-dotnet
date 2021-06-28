@@ -32,4 +32,8 @@ type Brand = {
     name_ru: string
 }
 
+type Year = {
+    year: int
+}
+
 type TimetableDirection = | Back = '<' | Future = '>'
