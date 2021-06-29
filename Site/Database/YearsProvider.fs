@@ -1,20 +1,22 @@
-namespace Site.Database
+module Site.Database.YearsProvider
 
-open System.Threading.Tasks
 open Models
+open Npgsql.FSharp
+open Site.Database.Helpers
 
 
-/// Data provider for working with years
-module YearsProvider =
-    open Helpers
-    
-    /// Maps Dapper result to F# record
-    let private mapper (read : RowReader) =
-        {
-            year = read.int "year"
-        }
+/// SQL request for getting list of years
+let private query = "SELECT EXTRACT(YEAR FROM date_start)::INTEGER AS year
+             FROM events
+             GROUP BY year
+             ORDER BY year DESC;"
 
-    /// Returns the list of years
-    let list : Async<Year list> =
-        let sql = SqlRequests.years
-        query<Year> sql [] mapper
+/// Maps SQL query result to F# record
+let private mapper (read: RowReader) : Year = { year = read.int "year" }
+
+/// Returns the list of years
+let getYears : Async<Year list> =
+    connectDb
+    |> Sql.query query
+    |> Sql.executeAsync mapper
+    |> Async.AwaitTask

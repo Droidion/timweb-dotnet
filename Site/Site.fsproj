@@ -6,9 +6,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="Config.yaml" />
         <Compile Include="Translations.fs" />
-        <Compile Include="Database\SqlRequests.fs" />
+        <Compile Include="Utilities\Strings.fs" />
+        <Compile Include="Utilities\Dates.fs" />
         <Compile Include="Database\Helpers.fs" />
         <Compile Include="Database\YearsProvider.fs" />
         <Compile Include="Database\TimetableProvider.fs" />
@@ -35,6 +35,7 @@
         <Content Include="Translations.yaml">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
+        
     </ItemGroup>
 
     <ItemGroup>

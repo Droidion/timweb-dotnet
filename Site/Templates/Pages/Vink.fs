@@ -1,14 +1,11 @@
-namespace Site.Templates.Pages
+module Site.Templates.Pages.Vink
 
 open Giraffe.ViewEngine
 open Site.Templates
 
-/// Main page template
-module Vink =
+/// Renders HTML
+let view (lang: string) (path: string) =
+    let pageTitle = "Vink Page"
 
-    /// Renders HTML
-    let view (lang: string) (path: string) =
-        let pageTitle = "Vink Page"
-
-        [ h1 [] [ str pageTitle ] ]
-        |> App.view pageTitle lang path
+    [ h1 [] [ str pageTitle ] ]
+    |> App.view pageTitle lang path

@@ -36,4 +36,4 @@ type Year = {
     year: int
 }
 
-type TimetableDirection = | Back = '<' | Future = '>'
+type TimetableDirection = | Past = '<' | Future = '>'

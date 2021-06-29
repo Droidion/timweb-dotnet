@@ -1,14 +1,11 @@
-namespace Site.Templates.Pages
+module Site.Templates.Pages.Company
 
 open Giraffe.ViewEngine
 open Site.Templates
 
-/// Main page template
-module Company =
+/// Renders HTML
+let view (lang: string) (path: string) =
+    let pageTitle = "Index Page"
 
-    /// Renders HTML
-    let view (lang: string) (path: string) =
-        let pageTitle = "Index Page"
-
-        [ h1 [] [ str pageTitle ] ]
-        |> App.view pageTitle lang path
+    [ h1 [] [ str pageTitle ] ]
+    |> App.view pageTitle lang path

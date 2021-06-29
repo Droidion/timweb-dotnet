@@ -6,7 +6,7 @@ open Site.Templates
 /// Top-level layout template
 module App =
 
-    let private getLangLing (lang: string) (path: string) = $"/{lang}{path.[3..]}"
+    let private getLangLink (lang: string) (path: string) = $"/{lang}{path.[3..]}"
 
     /// Renders HTML
     let view (pageTitle: string) (lang: string) (path: string) (content: XmlNode list) =

@@ -1,14 +1,11 @@
-namespace Site.Templates.Pages
+module Site.Templates.Pages.Geography
 
 open Giraffe.ViewEngine
 open Site.Templates
 
-/// Main page template
-module Geography =
+/// Renders HTML
+let view (lang: string) (path: string) =
+    let pageTitle = "Geography Page"
 
-    /// Renders HTML
-    let view (lang: string) (path: string) =
-        let pageTitle = "Geography Page"
-
-        [ h1 [] [ str pageTitle ] ]
-        |> App.view pageTitle lang path
+    [ h1 [] [ str pageTitle ] ]
+    |> App.view pageTitle lang path
