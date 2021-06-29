@@ -13,7 +13,7 @@ let private mask = tag "mask"
 let private rect = voidTag "rect"
 let private stop = voidTag "stop"
 
-let ruleEvenOdd = "evenodd"
+let private ruleEvenOdd = "evenodd"
 
 type Color =
     | Black

@@ -6,8 +6,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Translations.fs" />
-        <Compile Include="Utilities\Strings.fs" />
+        <Compile Include="Language\Helpers.fs" />
+        <Compile Include="Language\Translations.fs" />
+        <Content Include="Language\Translations.yaml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
         <Compile Include="Utilities\Dates.fs" />
         <Compile Include="Database\Helpers.fs" />
         <Compile Include="Database\YearsProvider.fs" />
@@ -26,15 +29,13 @@
         <Compile Include="Templates\Pages\Rating.fs" />
         <Compile Include="Templates\Pages\Vink.fs" />
         <Compile Include="Templates\Pages\Talks.fs" />
+        <Compile Include="Web\Controllers.fs" />
+        <Compile Include="Web\Router.fs" />
         <Content Include="static\**">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
-        <Compile Include="Controllers.fs" />
-        <Compile Include="Router.fs" />
         <Compile Include="Program.fs" />
-        <Content Include="Translations.yaml">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
+
         
     </ItemGroup>
 

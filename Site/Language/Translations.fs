@@ -1,4 +1,4 @@
-module Site.Translations
+module Site.Language.Translations
 
 open System
 open Legivel.Serialization
@@ -10,7 +10,7 @@ let mutable private translations : Translations option = None
 /// Loads translations from YAML file
 let loadTranslations : unit =
     let transResult =
-        @"Translations.yaml"
+        @"Language/Translations.yaml"
         |> IO.File.ReadAllText
         |> Deserialize<Translations>
         |> List.head

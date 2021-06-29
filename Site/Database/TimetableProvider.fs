@@ -3,7 +3,7 @@ module Site.Database.TimetableProvider
 open System.Data
 open Models
 open Npgsql.FSharp
-open Site.Utilities.Strings
+open Site.Language.Helpers
 open Site.Database.Helpers
 
 /// Returns SQL request for getting timetable

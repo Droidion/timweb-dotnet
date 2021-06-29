@@ -1,7 +1,7 @@
-module Site.Router
+module Site.Web.Router
 
 open Saturn
-open Site.Controllers
+open Site.Web.Controllers
 
 /// Router is just a forward to parent controller
 let main = router { forward "" langController }

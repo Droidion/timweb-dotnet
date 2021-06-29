@@ -1,8 +1,8 @@
 ﻿open Saturn
 open Microsoft.Extensions.Hosting
 open Microsoft.AspNetCore.Builder
-open Site
-open Site.Translations
+open Site.Web
+open Site.Language.Translations
 
 loadTranslations
 

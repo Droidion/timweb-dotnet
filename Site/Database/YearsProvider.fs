@@ -4,7 +4,6 @@ open Models
 open Npgsql.FSharp
 open Site.Database.Helpers
 
-
 /// SQL request for getting list of years
 let private query = "SELECT EXTRACT(YEAR FROM date_start)::INTEGER AS year
              FROM events

@@ -2,11 +2,11 @@ module Site.Templates.Pages.Timetable
 
 open Giraffe.ViewEngine
 open Models
-open Site.Utilities.Strings
 open Site.Utilities.Dates
 open Site.Database
 open Site.Templates
-open Site.Translations
+open Site.Language.Helpers
+open Site.Language.Translations
 
 let private addSelectedClass (pageYear: int) (buttonYear: int) : string =
     if pageYear = buttonYear then

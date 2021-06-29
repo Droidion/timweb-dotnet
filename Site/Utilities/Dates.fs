@@ -1,7 +1,7 @@
 module Site.Utilities.Dates
 
 open System
-open Site.Utilities.Strings
+open Site.Language.Helpers
 
 /// Returns formatted date string for all combinations of start and finish dates
 let formatYear (start: DateTime) (finish: DateTime option) (lang: string) : string =
@@ -16,7 +16,7 @@ let formatYear (start: DateTime) (finish: DateTime option) (lang: string) : stri
     // Formats date with locale like 15 December <span>2022</span>, or 15 декабря <span>2022</span>
     let fullDate (year: DateTime) : string =
         $"{year.ToString(dateFormat, culture)} {formattedYear year.Year}"
-
+        
     match (start, finish) with
     // Only start date, format it like 10 December 2025
     | start, None -> $"{fullDate start}"

@@ -1,9 +1,9 @@
-module Site.Controllers
+module Site.Web.Controllers
 
 open Saturn
 open Site.Templates.Pages
 open Microsoft.AspNetCore.Http
-open Site.Utilities.Strings
+open Site.Language.Helpers
 
 /// Gets language id from request context
 let private browserLang (ctx: HttpContext) =
