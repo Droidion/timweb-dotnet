@@ -10,7 +10,7 @@ module App =
 
     /// Renders HTML
     let view (pageTitle: string) (lang: string) (path: string) (content: XmlNode list) =
-        html [] [
+        html [ _lang lang ] [
             head [] [
                 title [] [ str pageTitle ]
                 meta [ _charset "utf-8" ]

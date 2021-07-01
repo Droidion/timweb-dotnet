@@ -27,7 +27,7 @@ let private getTimetableSql (lang: string) (direction: TimetableDirection) : str
              INNER JOIN clients c2 ON ec.client_id = c2.id
       WHERE e.date_start {unbox<char> direction} now() {yearClause}
       GROUP BY e.date_start, e.date_finish, s.name_{lang}, c.name_{lang}
-      ORDER BY date_start desc;"
+      ORDER BY date_start DESC;"
 
 /// Maps SQL query result to F# record
 let private mapper (read: RowReader) : Timetable =

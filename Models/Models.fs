@@ -25,15 +25,15 @@ type GameRating = {
     rating: float
 }
 
-type Brand = {
-    id: int
-    logo: string
-    name_in: string
-    name_ru: string
-}
-
 type Year = {
     year: int
 }
 
 type TimetableDirection = | Past = '<' | Future = '>'
+
+type Client = {
+    name: string
+    seminarDays: int
+    vinkDays: int
+    clients: string
+}
