@@ -33,6 +33,7 @@ type TimetableDirection = | Past = '<' | Future = '>'
 
 type Client = {
     name: string
+    logo: string
     seminarDays: int
     vinkDays: int
     clients: string

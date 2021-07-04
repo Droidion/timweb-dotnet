@@ -2,9 +2,6 @@
 open Microsoft.Extensions.Hosting
 open Microsoft.AspNetCore.Builder
 open Site.Web
-open Site.Language.Translations
-
-loadTranslations
 
 /// Saturn app
 let app =

@@ -8,8 +8,11 @@
     <ItemGroup>
         <Compile Include="Language\Helpers.fs" />
         <Compile Include="Language\Translations.fs" />
-        <Content Include="Language\Translations.yaml">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <Content Include="Language\TranslationsSingular.yaml">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="Language\TranslationsPlural.yaml">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
         <Compile Include="Utilities\Dates.fs" />
         <Compile Include="Database\Helpers.fs" />

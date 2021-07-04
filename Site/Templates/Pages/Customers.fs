@@ -3,19 +3,35 @@ module Site.Templates.Pages.Customers
 open Giraffe.ViewEngine
 open Site.Database
 open Site.Templates
+open Site.Language.Translations
 
 /// Renders HTML
 let view (lang: string) (path: string) =
-    let pageTitle = "Customers Page"
-    
-    let clients =
-        ClientsProvider.getClients lang
-        |> Async.RunSynchronously
+    let pageTitle = getTranslationSingular "Customers" lang
+    let clients = ClientsProvider.getClients lang |> Async.RunSynchronously
 
     [ h1 [] [ str pageTitle ]
-      for client in clients do
-          h2 [] [str $"{client.name}"]
-          div [] [str $"{client.seminarDays} seminar days"]
-          div [] [str $"{client.vinkDays} VINKs"]
-          div [] [str $"{client.clients}"]]
+      div [ _class "flex-list" ] [
+          for client in clients do
+              div [ _class "client" ] [
+                  div [ _class "brand-logo" ] [
+                      img [ _src $"https://timseminar.ru/img/logos/{client.logo}" ]
+                  ]
+                  div [] [
+                      h2 [] [ str $"{client.name}" ]
+
+                      p [] [
+                          let seminarDays = getTranslationPlural "SeminarDays" lang client.seminarDays
+                          let vinks = getTranslationPlural "Vinks" lang client.vinkDays
+                          str $"{client.seminarDays} {seminarDays}, {client.vinkDays} {vinks}"
+                      ]
+
+                      p [ _class "pale-text" ] [
+                          str $"{client.clients}"
+                      ]
+                  ]
+              ]
+      ] ]
+
+
     |> App.view pageTitle lang path

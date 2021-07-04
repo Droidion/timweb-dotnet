@@ -31,21 +31,21 @@ let view (lang: string) (year: int) (path: string) : XmlNode =
         TimetableProvider.getTimetable lang year TimetableDirection.Past
         |> Async.RunSynchronously
 
-    let pageTitle = "Brands"
+    let pageTitle = getTranslationSingular "Timetable" lang
 
     let tableHeader =
         div [ _class "table__header" ] [
             div [ _class "table__cell" ] [
-                getTranslation "Date" lang |> str
+                getTranslationSingular "Date" lang |> str
             ]
             div [ _class "table__cell" ] [
-                getTranslation "Seminar" lang |> str
+                getTranslationSingular "Seminar" lang |> str
             ]
             div [ _class "table__cell" ] [
-                getTranslation "City" lang |> str
+                getTranslationSingular "City" lang |> str
             ]
             div [ _class "table__cell" ] [
-                getTranslation "Clients" lang |> str
+                getTranslationSingular "Clients" lang |> str
             ]
         ]
 
@@ -84,11 +84,9 @@ let view (lang: string) (year: int) (path: string) : XmlNode =
         ]
 
     // HTML
-    [ h1 [] [
-        getTranslation "Timetable" lang |> str
-      ]
+    [ h1 [] [ pageTitle |> str ]
       h2 [] [
-          getTranslation "FutureSeminars" lang |> str
+          getTranslationSingular "FutureSeminars" lang |> str
       ]
       renderTable timetableFuture
       div [ _class "years-selector" ] [
@@ -100,7 +98,7 @@ let view (lang: string) (year: int) (path: string) : XmlNode =
               ]
       ]
       h2 [] [
-          getTranslation "PastSeminars" lang |> str
+          getTranslationSingular "PastSeminars" lang |> str
       ]
       renderTable timetablePast ]
     |> App.view pageTitle lang path

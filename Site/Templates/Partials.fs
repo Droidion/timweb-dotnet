@@ -25,13 +25,13 @@ let private getLangLink (lang: string) (path: string) = $"/{lang}{path.[3..]}"
 let private getCurYear = DateTime.Now.Year
 
 let private menuItems lang =
-    [ (getTranslation "Timetable" lang, $"/{lang}/timetable/{getCurYear}")
-      (getTranslation "Seminars" lang, $"/{lang}/seminars")
-      (getTranslation "Customers" lang, $"/{lang}/customers")
-      (getTranslation "Geography" lang, $"/{lang}/geography")
-      (getTranslation "Feedback" lang, $"/{lang}/feedback")
-      (getTranslation "Contact" lang, $"/{lang}/contact")
-      (getTranslation "Rating" lang, $"/{lang}/rating") ]
+    [ (getTranslationSingular "Timetable" lang, $"/{lang}/timetable/{getCurYear}")
+      (getTranslationSingular "Seminars" lang, $"/{lang}/seminars")
+      (getTranslationSingular "Customers" lang, $"/{lang}/customers")
+      (getTranslationSingular "Geography" lang, $"/{lang}/geography")
+      (getTranslationSingular "Feedback" lang, $"/{lang}/feedback")
+      (getTranslationSingular "Contact" lang, $"/{lang}/contact")
+      (getTranslationSingular "Rating" lang, $"/{lang}/rating") ]
 
 /// Header
 let header lang =
@@ -40,19 +40,19 @@ let header lang =
             img [ _src "/img/tim-logo.svg"; _class "header__logo" ]
             div [ _class "header__title" ] [
                 div [ _class "header__name" ] [
-                    str <| getTranslation "CompanyName" lang
+                    str <| getTranslationSingular "CompanyName" lang
                 ]
                 div [ _class "header__about" ] [
-                    str <| getTranslation "CompanyDescription" lang
+                    str <| getTranslationSingular "CompanyDescription" lang
                 ]
             ]
         ]
       ]
 
       div [ _class "header__right" ] [
-          getTopMenuEl Svg.companyIcon (getTranslation "Company" lang) $"/{lang}/company"
-          getTopMenuEl Svg.vinkIcon (getTranslation "Vink" lang) $"/{lang}/vink"
-          getTopMenuEl Svg.negotiationsIcon (getTranslation "Talks" lang) $"/{lang}/talks"
+          getTopMenuEl Svg.companyIcon (getTranslationSingular "Company" lang) $"/{lang}/company"
+          getTopMenuEl Svg.vinkIcon (getTranslationSingular "Vink" lang) $"/{lang}/vink"
+          getTopMenuEl Svg.negotiationsIcon (getTranslationSingular "Talks" lang) $"/{lang}/talks"
       ] ]
 
 /// Footer

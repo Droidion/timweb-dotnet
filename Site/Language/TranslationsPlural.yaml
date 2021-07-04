@@ -1,0 +1,17 @@
+SeminarDays:
+  en:
+    - "seminar day"
+    - "seminar days"
+  ru:
+    - "семинарный день"
+    - "семинарных дня"
+    - "семинарных дней"
+
+Vinks:
+  en:
+    - "VINK"
+    - "VINKs"
+  ru:
+    - "ВИНК"
+    - "ВИНКа"
+    - "ВИНКов"
