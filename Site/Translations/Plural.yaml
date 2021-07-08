@@ -9,9 +9,9 @@ SeminarDays:
 
 Vinks:
   en:
-    - "VINK"
-    - "VINKs"
+    - "VINK game"
+    - "VINK games"
   ru:
-    - "ВИНК"
-    - "ВИНКа"
-    - "ВИНКов"
+    - "игра ВИНК"
+    - "игры ВИНК"
+    - "игр ВИНК"

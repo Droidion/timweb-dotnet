@@ -1,10 +1,10 @@
-module Site.Database.TimetableProvider
+module Site.Timetable
 
 open System.Data
-open Models
+open Site.DomainModel
 open Npgsql.FSharp
-open Site.Language.Helpers
-open Site.Database.Helpers
+open Site.Localization
+open Site.Persistence
 
 /// Returns SQL request for getting timetable
 let private getTimetableSql (lang: string) (direction: TimetableDirection) : string =
@@ -39,7 +39,7 @@ let private mapper (read: RowReader) : Timetable =
 
 /// Returns the list of events
 let getTimetable (lang: string) (year: int) (direction: TimetableDirection) : Async<Timetable list> =
-    connectDb
+    pgConn
     |> Sql.query (getTimetableSql (coerceLanguage lang) direction)
     |> Sql.parameters [ "Year", Sql.int year ]
     |> Sql.executeAsync mapper

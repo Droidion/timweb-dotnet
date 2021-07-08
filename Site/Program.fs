@@ -1,12 +1,12 @@
 ﻿open Saturn
 open Microsoft.Extensions.Hosting
 open Microsoft.AspNetCore.Builder
-open Site.Web
+open Site.Router
 
 /// Saturn app
 let app =
     application {
-        use_router Router.main
+        use_router mainRouter
         url "http://0.0.0.0:8080"
         use_static "static"
         use_gzip

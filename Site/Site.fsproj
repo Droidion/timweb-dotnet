@@ -6,19 +6,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Language\Helpers.fs" />
-        <Compile Include="Language\Translations.fs" />
-        <Content Include="Language\TranslationsSingular.yaml">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="Language\TranslationsPlural.yaml">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Compile Include="Utilities\Dates.fs" />
-        <Compile Include="Database\Helpers.fs" />
-        <Compile Include="Database\YearsProvider.fs" />
-        <Compile Include="Database\TimetableProvider.fs" />
-        <Compile Include="Database\ClientsProvider.fs" />
+        <Compile Include="DomainModel.fs" />
+        <Compile Include="Persistence.fs" />
+        <Compile Include="Localization.fs" />
+        <Compile Include="Helpers.fs" />
+        <Compile Include="Years.fs" />
+        <Compile Include="Timetable.fs" />
+        <Compile Include="Clients.fs" />
         <Compile Include="Templates\Svg.fs" />
         <Compile Include="Templates\Partials.fs" />
         <Compile Include="Templates\App.fs" />
@@ -33,13 +27,18 @@
         <Compile Include="Templates\Pages\Rating.fs" />
         <Compile Include="Templates\Pages\Vink.fs" />
         <Compile Include="Templates\Pages\Talks.fs" />
-        <Compile Include="Web\Controllers.fs" />
-        <Compile Include="Web\Router.fs" />
+        <Compile Include="Controllers.fs" />
+        <Compile Include="Router.fs" />
         <Content Include="static\**">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
+        <Content Include="Translations\Singular.yaml">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="Translations\Plural.yaml">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
         <Compile Include="Program.fs" />
-
         
     </ItemGroup>
 
@@ -51,11 +50,8 @@
       <PackageReference Include="Npgsql" Version="5.0.7" />
       <PackageReference Include="Npgsql.FSharp" Version="4.0.0" />
       <PackageReference Include="Saturn" Version="0.15.0" />
+      <PackageReference Include="StackExchange.Redis" Version="2.2.62" />
       <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Models\Models.fsproj" />
     </ItemGroup>
 
 </Project>

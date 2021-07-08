@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Models", "Models\Models.fsproj", "{8313B3D4-DCCC-4741-8F40-F1BC07CAFCE7}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Site", "Site\Site.fsproj", "{99A0B599-7270-4A56-ACC2-9EFA2AD09BDD}"
 EndProject
 Global
@@ -14,10 +12,6 @@ Global
 		{6C8FD6FD-A411-41AF-BA26-EBC487612608}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C8FD6FD-A411-41AF-BA26-EBC487612608}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C8FD6FD-A411-41AF-BA26-EBC487612608}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8313B3D4-DCCC-4741-8F40-F1BC07CAFCE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8313B3D4-DCCC-4741-8F40-F1BC07CAFCE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8313B3D4-DCCC-4741-8F40-F1BC07CAFCE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8313B3D4-DCCC-4741-8F40-F1BC07CAFCE7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{99A0B599-7270-4A56-ACC2-9EFA2AD09BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{99A0B599-7270-4A56-ACC2-9EFA2AD09BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99A0B599-7270-4A56-ACC2-9EFA2AD09BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU

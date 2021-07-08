@@ -1,4 +1,4 @@
-﻿namespace Models
+namespace Site.DomainModel
 
 open System
 

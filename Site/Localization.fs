@@ -1,7 +1,15 @@
-module Site.Language.Translations
+module Site.Localization
 
 open System
 open Legivel.Serialization
+open System.Globalization
+
+let getCulture (lang: string) : CultureInfo =
+    CultureInfo.CreateSpecificCulture(if lang = "ru" then "ru-RU" else "en-US")
+
+/// Cleans up language identifier for SQL queries.
+/// Makes sure it's one of the expected variants.
+let coerceLanguage (lang: string) : string = if lang = "ru" then lang else "en"
 
 let private loadTranslation<'a> (filename: string) : 'a =
     match filename |> IO.File.ReadAllText |> Deserialize<'a> |> List.head with
@@ -9,10 +17,10 @@ let private loadTranslation<'a> (filename: string) : 'a =
     | _ -> "Could not load translations" |> ArgumentException |> raise
 
 let private translationsSingular : Map<string, Map<string, string>> =
-    loadTranslation @"Language/TranslationsSingular.yaml"
+    loadTranslation @"Translations/Singular.yaml"
 
 let private translationsPlural : Map<string, Map<string, string list>> =
-    loadTranslation @"Language/TranslationsPlural.yaml"
+    loadTranslation @"Translations/Plural.yaml"
 
 let private getNumIndex (quantity: int) (lang: string) : int =
     match lang with

@@ -1,14 +1,14 @@
 module Site.Templates.Pages.Customers
 
 open Giraffe.ViewEngine
-open Site.Database
+open Site.Clients
 open Site.Templates
-open Site.Language.Translations
+open Site.Localization
 
 /// Renders HTML
 let view (lang: string) (path: string) =
     let pageTitle = getTranslationSingular "Customers" lang
-    let clients = ClientsProvider.getClients lang |> Async.RunSynchronously
+    let clients = getClients lang |> Async.RunSynchronously
 
     [ h1 [] [ str pageTitle ]
       div [ _class "flex-list" ] [
@@ -24,7 +24,13 @@ let view (lang: string) (path: string) =
                           let seminarDays = getTranslationPlural "SeminarDays" lang client.seminarDays
                           let vinks = getTranslationPlural "Vinks" lang client.vinkDays
                           let mainStr = $"{client.seminarDays} {seminarDays}"
-                          str (if client.vinkDays > 0 then $"{mainStr}, {client.vinkDays} {vinks}" else mainStr)
+
+                          str (
+                              if client.vinkDays > 0 then
+                                  $"{mainStr}, {client.vinkDays} {vinks}"
+                              else
+                                  mainStr
+                          )
                       ]
 
                       p [ _class "pale-text" ] [

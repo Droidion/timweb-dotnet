@@ -1,9 +1,9 @@
-module Site.Database.ClientsProvider
+module Site.Clients
 
 open FSharp.Json
 open Npgsql.FSharp
-open Site.Database.Helpers
-open Models
+open Site.Persistence
+open Site.DomainModel
 
 let private getClientsQuery (lang: string) : string =
     $"SELECT b.name_{lang}                                        AS name,
@@ -26,7 +26,7 @@ let private mapper (read: RowReader) : Client =
       clients = "clients" |> read.text |> Json.deserialize<string list> |> String.concat ", " }
     
 let getClients (lang: string) : Async<Client list> =
-    connectDb
+    pgConn
     |> Sql.query (getClientsQuery lang)
     |> Sql.executeAsync mapper
     |> Async.AwaitTask   

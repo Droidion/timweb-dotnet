@@ -1,7 +1,7 @@
 module Site.Utilities.Dates
 
 open System
-open Site.Language.Helpers
+open Site.Localization
 
 /// Returns formatted date string for all combinations of start and finish dates
 let formatYear (start: DateTime) (finish: DateTime option) (lang: string) : string =

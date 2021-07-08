@@ -1,8 +1,8 @@
-module Site.Database.YearsProvider
+module Site.Years
 
-open Models
+open Site.DomainModel
 open Npgsql.FSharp
-open Site.Database.Helpers
+open Site.Persistence
 
 /// SQL request for getting list of years
 let private query = "SELECT EXTRACT(YEAR FROM date_start)::INTEGER AS year
@@ -15,7 +15,7 @@ let private mapper (read: RowReader) : Year = { year = read.int "year" }
 
 /// Returns the list of years
 let getYears : Async<Year list> =
-    connectDb
+    pgConn
     |> Sql.query query
     |> Sql.executeAsync mapper
     |> Async.AwaitTask

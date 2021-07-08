@@ -3,7 +3,7 @@ module Site.Templates.Partials
 open System
 open Giraffe.ViewEngine
 open Site.Templates
-open Site.Language.Translations
+open Site.Localization
 
 /// Renders top menu item
 let private getTopMenuEl icon text url =

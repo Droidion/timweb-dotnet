@@ -1,12 +1,12 @@
 module Site.Templates.Pages.Timetable
 
 open Giraffe.ViewEngine
-open Models
+open Site.DomainModel
 open Site.Utilities.Dates
-open Site.Database
+open Site.Years
+open Site.Timetable
+open Site.Localization
 open Site.Templates
-open Site.Language.Helpers
-open Site.Language.Translations
 
 let private addSelectedClass (pageYear: int) (buttonYear: int) : string =
     if pageYear = buttonYear then
@@ -19,16 +19,16 @@ let view (lang: string) (year: int) (path: string) : XmlNode =
 
     // Load data from DB
     let years =
-        YearsProvider.getYears
+        getYears
         |> Async.RunSynchronously
         |> List.map (fun el -> el.year)
 
     let timetableFuture =
-        TimetableProvider.getTimetable lang year TimetableDirection.Future
+        getTimetable lang year TimetableDirection.Future
         |> Async.RunSynchronously
 
     let timetablePast =
-        TimetableProvider.getTimetable lang year TimetableDirection.Past
+        getTimetable lang year TimetableDirection.Past
         |> Async.RunSynchronously
 
     let pageTitle = getTranslationSingular "Timetable" lang
